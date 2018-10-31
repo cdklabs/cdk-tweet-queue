@@ -18,6 +18,10 @@
   "dependencies": {
     "twitter": "^1.7.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eladb/cdk-tweet-queue.git"
+  },
   "devDependencies": {
     "@types/node": "^10.12.1",
     "aws-sdk": "^2.344.0"

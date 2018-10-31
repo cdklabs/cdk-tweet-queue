@@ -71,3 +71,33 @@ const queue = new TweetQueue(this, 'TweetStream', {
 Now, `queue` is an `sqs.Queue` object and can be used anywhere a queue is
 accepted. For example, you could process the queue messages using an AWS Lambda
 function by setting up an SQS event source mapping.
+
+## Development
+
+This is a mono-repo which uses [lerna](https://github.com/lerna/lerna). Here are
+some useful commands:
+
+- `lerna run build` - builds all code
+- `lerna run watch --stream` -- runs `tsc -w` in all modules (in parallel)
+- `lerna run test` - tests all code
+
+There is also an integration test that can be executed from the cdk-tweet-queue
+package by running the following commands. You will need to set the
+`TWEET_QUEUE_SECRET_ARN` environment variable in order for the test to be able
+to use your Twitter API keys.
+
+```console
+$ npm run integ deploy
+...
+```
+
+Don't forget to destroy:
+
+```console
+$ npm run integ destroy
+...
+```
+
+## License
+
+Apache-2.0

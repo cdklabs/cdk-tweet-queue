@@ -5,6 +5,7 @@ import lambda = require('@aws-cdk/aws-lambda');
 import dynamodb = require('@aws-cdk/aws-dynamodb');
 import events = require('@aws-cdk/aws-events');
 import path = require('path');
+import { resolve } from 'url';
 
 export interface TweetQueueProps {
   /**
@@ -56,7 +57,7 @@ export class TweetQueue extends sqs.Queue {
     table.addPartitionKey({ name: keyName, type: dynamodb.AttributeType.String });
 
     const fn = new lambda.Function(this, 'Poller', {
-      code: lambda.Code.directory(path.join(__dirname, '..', 'node_modules', 'cdk-tweet-queue-poller')),
+      code: lambda.Code.directory(path.dirname(require.resolve('cdk-tweet-queue-poller/package.json'))),
       handler: 'lib/index.handler',
       runtime: lambda.Runtime.NodeJS810,
       timeout: 15 * 60,
