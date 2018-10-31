@@ -15,15 +15,16 @@
   ],
   "author": "elad.benisrael@gmail.clom",
   "license": "Apache-2.0",
+  "bundleDependencies": [ "twitter" ],
   "dependencies": {
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "aws-sdk": "^2.344.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/eladb/cdk-tweet-queue.git"
   },
   "devDependencies": {
-    "@types/node": "^10.12.1",
-    "aws-sdk": "^2.344.0"
+    "@types/node": "^10.12.1"
   }
 }
