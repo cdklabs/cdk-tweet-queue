@@ -2,3 +2,10 @@
 !*.d.ts
 tsconfig.json
 test/
+
+
+# Exclude jsii outdir
+dist
+
+# Include .jsii
+!.jsii
