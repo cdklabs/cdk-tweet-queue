@@ -55,7 +55,7 @@
     "jsii-pacmak": "^0.7.8"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-sqs": "^0.14.1",
-    "@aws-cdk/cdk": "^0.14.1"
+    "@aws-cdk/aws-sqs": "*",
+    "@aws-cdk/cdk": "*"
   }
 }
