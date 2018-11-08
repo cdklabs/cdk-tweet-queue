@@ -23,10 +23,18 @@ cd ${source}
 tarball="${source}/$(npm pack)"
 
 # untar into "./lambda"
-rm -fr ${dest}
-mkdir -p ${dest}
-cd ${dest}
+staging=$(mktemp -d)
+rm -fr ${staging}
+mkdir -p ${staging}
+cd ${staging}
 tar --strip-components=1 -xzvf ${tarball}
 
 # clean up tarball
 rm ${tarball}
+
+# prepare lambda bundle
+cd ${staging}
+rm -fr ${dest}
+mkdir -p ${dest}
+zip -r ${dest}/bundle.zip .
+

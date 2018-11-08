@@ -56,7 +56,7 @@ export class TweetQueue extends sqs.Queue {
     table.addPartitionKey({ name: keyName, type: dynamodb.AttributeType.String });
 
     const fn = new lambda.Function(this, 'Poller', {
-      code: lambda.Code.asset(path.join(__dirname, '..', 'lambda')),
+      code: lambda.Code.asset(path.join(__dirname, '..', 'lambda', 'bundle.zip')),
       handler: 'lib/index.handler',
       runtime: lambda.Runtime.NodeJS810,
       timeout: 15 * 60,

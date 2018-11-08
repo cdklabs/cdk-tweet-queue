@@ -17,10 +17,12 @@
   "author": "elad.benisrael@gmail.clom",
   "license": "Apache-2.0",
   "bundleDependencies": [
-    "twitter"
+    "twitter",
+    "tough-cookie"
   ],
   "dependencies": {
     "aws-sdk": "^2.351.0",
+    "tough-cookie": "^2.4.3",
     "twitter": "^1.7.1"
   },
   "repository": {
