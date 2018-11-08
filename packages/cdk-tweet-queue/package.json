@@ -50,7 +50,7 @@
   "devDependencies": {
     "@aws-cdk/assert": "^0.15.2",
     "@types/node": "^10.12.3",
-    "cdk-tweet-queue-poller": "^0.1.4",
+    "cdk-tweet-queue-poller": "^0.1.6",
     "jsii": "^0.7.8",
     "jsii-pacmak": "^0.7.8"
   },

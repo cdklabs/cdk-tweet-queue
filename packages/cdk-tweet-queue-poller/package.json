@@ -1,6 +1,6 @@
 {
   "name": "cdk-tweet-queue-poller",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "AWS Lambda function which executes a search query against Twitter and enqueus tweets into an SQS queue",
   "private": true,
   "main": "lib/index.js",
@@ -20,7 +20,7 @@
     "twitter"
   ],
   "dependencies": {
-    "aws-sdk": "^2.344.0",
+    "aws-sdk": "^2.351.0",
     "twitter": "^1.7.1"
   },
   "repository": {
@@ -28,6 +28,6 @@
     "url": "https://github.com/eladb/cdk-tweet-queue.git"
   },
   "devDependencies": {
-    "@types/node": "^10.12.1"
+    "@types/node": "^10.12.3"
   }
 }
