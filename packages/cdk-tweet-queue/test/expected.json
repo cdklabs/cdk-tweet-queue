@@ -16,16 +16,16 @@
             "KeyType": "HASH"
           }
         ],
-        "ProvisionedThroughput": {
-          "ReadCapacityUnits": 5,
-          "WriteCapacityUnits": 5
-        },
         "AttributeDefinitions": [
           {
             "AttributeName": "id",
             "AttributeType": "S"
           }
-        ]
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        }
       }
     },
     "MyQueuePollerServiceRole8BCA7659": {
@@ -37,7 +37,17 @@
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
               "Principal": {
-                "Service": "lambda.amazonaws.com"
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "lambda.",
+                      {
+                        "Ref": "AWS::URLSuffix"
+                      }
+                    ]
+                  ]
+                }
               }
             }
           ],
@@ -96,12 +106,17 @@
                 "dynamodb:DeleteItem"
               ],
               "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "MyQueueCheckpointTableD0A503A4",
-                  "Arn"
-                ]
-              }
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "MyQueueCheckpointTableD0A503A4",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Ref": "AWS::NoValue"
+                }
+              ]
             }
           ],
           "Version": "2012-10-17"
@@ -179,8 +194,8 @@
         "Timeout": 900
       },
       "DependsOn": [
-        "MyQueuePollerServiceRole8BCA7659",
-        "MyQueuePollerServiceRoleDefaultPolicy392B5642"
+        "MyQueuePollerServiceRoleDefaultPolicy392B5642",
+        "MyQueuePollerServiceRole8BCA7659"
       ]
     },
     "MyQueuePollerAllowEventRuleMyQueuePollingTimerB7F2AA5CCAED1690": {
@@ -188,7 +203,10 @@
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "MyQueuePoller59772903"
+          "Fn::GetAtt": [
+            "MyQueuePoller59772903",
+            "Arn"
+          ]
         },
         "Principal": "events.amazonaws.com",
         "SourceArn": {

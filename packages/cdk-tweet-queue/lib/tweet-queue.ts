@@ -50,11 +50,12 @@ export class TweetQueue extends sqs.Queue {
       retentionPeriodSec: props.retentionPeriodSec === undefined ? 60 : props.retentionPeriodSec,
       visibilityTimeoutSec: props.visibilityTimeoutSec === undefined ? 60 : props.visibilityTimeoutSec
     });
-
-    const table = new dynamodb.Table(this, 'CheckpointTable');
+    
     const keyName = 'id';
-    table.addPartitionKey({ name: keyName, type: dynamodb.AttributeType.String });
-
+    const table = new dynamodb.Table(this, 'CheckpointTable', {
+      partitionKey: {name: keyName, type: dynamodb.AttributeType.String}
+    });
+    
     const fn = new lambda.Function(this, 'Poller', {
       code: lambda.Code.asset(path.join(__dirname, '..', 'lambda', 'bundle.zip')),
       handler: 'lib/index.handler',
@@ -78,7 +79,7 @@ export class TweetQueue extends sqs.Queue {
       .addAction('sqs:SendMessage')
       .addAction('sqs:SendMessageBatch'));
 
-    table.grantReadWriteData(fn.role);
+    table.grantReadWriteData(fn.grantPrincipal);
 
     const interval = props.intervalMin === undefined ? 1 : props.intervalMin;
     if (interval > 0) {
