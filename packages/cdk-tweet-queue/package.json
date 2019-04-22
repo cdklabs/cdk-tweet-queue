@@ -1,6 +1,6 @@
 {
   "name": "cdk-tweet-queue",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Defines an SQS queue with tweet stream from a search",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
