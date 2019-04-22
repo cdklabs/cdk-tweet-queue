@@ -26,23 +26,23 @@ exports.handler = async function(event: any, _context: any) {
   const cursor_tail = await checkpoint.getLastCheckpoint();
   console.log('cursor_tail (last checkpoint):', cursor_tail);
 
-  let next_cursor_tail = 0;
+  let next_cursor_tail = '0';
   let cursor_head = undefined;
   const results: { [id: string]: boolean } = { };
 
   while (true) {
-    const req = { q: query, count: BATCH_SIZE, max_id: cursor_head, since_id: cursor_tail };
+    const req = { q: query, result_type: 'recent', count: BATCH_SIZE, max_id: cursor_head, since_id: cursor_tail };
     console.error('twitter search:', JSON.stringify(req));
     const res: any = await twitter.get('search/tweets', req);
 
     let min_id = res.search_metadata.max_id;
     let new_tweets = 0;
     for (const status of res.statuses) {
-      if (status.id in results) {
+      if (status.id_str in results) {
         continue; // duplicate (possible)
       }
 
-      results[status.id] = true;
+      results[status.id_str] = true;
       new_tweets++;
 
       // send tweet to queue
@@ -52,13 +52,14 @@ exports.handler = async function(event: any, _context: any) {
       }).promise();
 
       // track min_id to query next page
-      if (status.id < min_id) {
-        min_id = status.id;
+      if (status.id_str < min_id) {
+        min_id = status.id_str;
       }
 
       // keep track of next cursor tail (the maximum id we processed)
-      if (status.id > next_cursor_tail) {
-        next_cursor_tail = status.id;
+      if (status.id_str > next_cursor_tail) {
+        console.log('next_cursor_tail:', status.id_str);
+        next_cursor_tail = status.id_str;
       }
     }
 
@@ -77,7 +78,7 @@ exports.handler = async function(event: any, _context: any) {
     cursor_head = min_id;
   }
 
-  if (cursor_tail !== next_cursor_tail) {
+  if (typeof cursor_tail !== "undefined" && next_cursor_tail !== '0' && cursor_tail !== next_cursor_tail) {
     console.log('storing max_id checkpoint:', next_cursor_tail);
     await checkpoint.checkpoint(next_cursor_tail);
   } else {

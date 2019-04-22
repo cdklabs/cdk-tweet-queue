@@ -32,7 +32,7 @@ export class CheckpointTable {
     this.keyName = options.keyName || getEnv('CHECKPOINT_TABLE_KEY_NAME');
   }
 
-  public async getLastCheckpoint(): Promise<undefined | number> {
+  public async getLastCheckpoint(): Promise<undefined | string> {
     const req: DynamoDB.GetItemInput = {
       TableName: this.tableName,
       Key: {
@@ -46,10 +46,10 @@ export class CheckpointTable {
       return undefined; // not found
     }
 
-    return Number.parseInt(response.Item.max_id.N!);
+    return response.Item.max_id.N!;
   }
 
-  public async checkpoint(id: number) {
+  public async checkpoint(id: string) {
     const req: DynamoDB.PutItemInput = {
       TableName: this.tableName,
       Item: {
