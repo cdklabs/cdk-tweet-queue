@@ -78,7 +78,7 @@ exports.handler = async function(event: any, _context: any) {
     cursor_head = min_id;
   }
 
-  if (typeof cursor_tail !== "undefined" && next_cursor_tail !== '0' && cursor_tail !== next_cursor_tail) {
+  if ((typeof cursor_tail === "undefined" || next_cursor_tail !== '0') && cursor_tail !== next_cursor_tail) {
     console.log('storing max_id checkpoint:', next_cursor_tail);
     await checkpoint.checkpoint(next_cursor_tail);
   } else {
