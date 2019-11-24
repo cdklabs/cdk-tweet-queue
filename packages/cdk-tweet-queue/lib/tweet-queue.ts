@@ -1,10 +1,12 @@
-import cdk = require('@aws-cdk/cdk');
+import cdk = require('@aws-cdk/core');
 import iam = require('@aws-cdk/aws-iam');
 import sqs = require('@aws-cdk/aws-sqs');
 import lambda = require('@aws-cdk/aws-lambda');
+import targets = require('@aws-cdk/aws-events-targets');
 import dynamodb = require('@aws-cdk/aws-dynamodb');
 import events = require('@aws-cdk/aws-events');
 import path = require('path');
+import { Duration } from '@aws-cdk/core';
 
 export interface TweetQueueProps {
   /**
@@ -15,51 +17,52 @@ export interface TweetQueueProps {
    *  - access_token_key
    *  - access_token_secret
    */
-  secretArn: string;
+  readonly secretArn: string;
 
   /**
    * The twitter query string to stream.
    */
-  query: string;
+  readonly query: string;
 
   /**
    * Polling interval in minutes.
    * Set to 0 to disable polling.
    * @default 1min
    */
-  intervalMin?: number;
+  readonly intervalMin?: number;
 
   /**
    * Number of seconds for messages to wait in the queue for processing.
    * After this time, messages will be removed from the queue.
    * @default 60 seconds
    */
-  retentionPeriodSec?: number;
+  readonly retentionPeriodSec?: number;
 
   /**
    * Number of seconds for messages to be invisible while they are processed.
    * Based on the amount of time it would require to process a single message.
    * @default 60 seconds
    */
-  visibilityTimeoutSec?: number;
+  readonly visibilityTimeoutSec?: number;
 }
 
 export class TweetQueue extends sqs.Queue {
   constructor(parent: cdk.Construct, id: string, props: TweetQueueProps) {
     super(parent, id, {
-      retentionPeriodSec: props.retentionPeriodSec === undefined ? 60 : props.retentionPeriodSec,
-      visibilityTimeoutSec: props.visibilityTimeoutSec === undefined ? 60 : props.visibilityTimeoutSec
+      retentionPeriod: props.retentionPeriodSec === undefined ? Duration.seconds(60) : Duration.seconds(props.retentionPeriodSec),
+      visibilityTimeout: props.visibilityTimeoutSec === undefined ? Duration.seconds(60) : Duration.seconds(props.visibilityTimeoutSec)
     });
 
-    const table = new dynamodb.Table(this, 'CheckpointTable');
     const keyName = 'id';
-    table.addPartitionKey({ name: keyName, type: dynamodb.AttributeType.String });
+    const table = new dynamodb.Table(this, 'CheckpointTable', {
+      partitionKey: { name: keyName, type: dynamodb.AttributeType.STRING }
+    });
 
     const fn = new lambda.Function(this, 'Poller', {
       code: lambda.Code.asset(path.join(__dirname, '..', 'lambda', 'bundle.zip')),
       handler: 'lib/index.handler',
-      runtime: lambda.Runtime.NodeJS810,
-      timeout: 15 * 60,
+      runtime: lambda.Runtime.NODEJS_8_10,
+      timeout: Duration.minutes(15),
       environment: {
         CREDENTIALS_SECRET: props.secretArn,
         TWITTER_QUERY: props.query,
@@ -69,25 +72,25 @@ export class TweetQueue extends sqs.Queue {
       }
     });
 
-    fn.addToRolePolicy(new iam.PolicyStatement()
-      .addResource(props.secretArn)
-      .addAction('secretsmanager:GetSecretValue'));
+    fn.addToRolePolicy(new iam.PolicyStatement({
+      resources: [ props.secretArn ],
+      actions: [ 'secretsmanager:GetSecretValue' ]
+    }));
 
-    fn.addToRolePolicy(new iam.PolicyStatement()
-      .addResource(this.queueArn)
-      .addAction('sqs:SendMessage')
-      .addAction('sqs:SendMessageBatch'));
+    fn.addToRolePolicy(new iam.PolicyStatement({
+      resources: [ this.queueArn ],
+      actions: [ 'sqs:SendMessage', 'sqs:SendMessageBatch' ]
+    }));
 
-    table.grantReadWriteData(fn.role);
+    table.grantReadWriteData(fn);
 
     const interval = props.intervalMin === undefined ? 1 : props.intervalMin;
     if (interval > 0) {
-      const unit = interval === 1 ? 'minute' : 'minutes';
-      const timer = new events.EventRule(this, 'PollingTimer', {
-        scheduleExpression: `rate(${interval} ${unit})`
+      const timer = new events.Rule(this, 'PollingTimer', {
+        schedule: events.Schedule.rate(Duration.minutes(interval))
       });
 
-      timer.addTarget(fn);
+      timer.addTarget(new targets.LambdaFunction(fn));
     }
   }
 }

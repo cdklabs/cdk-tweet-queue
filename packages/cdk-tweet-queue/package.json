@@ -40,22 +40,29 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-cdk/aws-dynamodb": "^0.18.0",
-    "@aws-cdk/aws-events": "^0.18.0",
-    "@aws-cdk/aws-iam": "^0.18.0",
-    "@aws-cdk/aws-lambda": "^0.18.0",
-    "@aws-cdk/aws-sqs": "^0.18.0",
-    "@aws-cdk/cdk": "^0.18.0"
+    "@aws-cdk/aws-dynamodb": "^1.17.1",
+    "@aws-cdk/aws-events": "^1.17.1",
+    "@aws-cdk/aws-events-targets": "^1.17.1",
+    "@aws-cdk/aws-iam": "^1.17.1",
+    "@aws-cdk/aws-lambda": "^1.17.1",
+    "@aws-cdk/aws-sqs": "^1.17.1",
+    "@aws-cdk/core": "^1.17.1"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^0.18.0",
-    "@types/node": "^10.12.9",
+    "@aws-cdk/assert": "^1.17.1",
+    "@types/node": "^12.12.12",
     "cdk-tweet-queue-poller": "^0.1.9",
-    "jsii": "^0.7.11",
-    "jsii-pacmak": "^0.7.11"
+    "jsii": "^0.20.7",
+    "jsii-pacmak": "^0.20.7",
+    "typescript": "^3.7.2"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-sqs": "^0.18.0",
-    "@aws-cdk/cdk": "^0.18.0"
+    "@aws-cdk/aws-dynamodb": "^1.17.1",
+    "@aws-cdk/aws-events": "^1.17.1",
+    "@aws-cdk/aws-iam": "^1.17.1",
+    "@aws-cdk/aws-lambda": "^1.17.1",
+    "@aws-cdk/aws-sqs": "^1.17.1",
+    "@aws-cdk/core": "^1.17.1",
+    "@aws-cdk/aws-events-targets": "^1.17.1"
   }
 }

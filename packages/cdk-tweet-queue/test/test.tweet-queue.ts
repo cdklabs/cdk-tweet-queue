@@ -1,5 +1,5 @@
 import { expect } from '@aws-cdk/assert';
-import cdk = require('@aws-cdk/cdk');
+import cdk = require('@aws-cdk/core');
 import { TweetQueue } from '../lib';
 import fs = require('fs');
 import path = require('path');
