@@ -16,17 +16,19 @@
             "KeyType": "HASH"
           }
         ],
-        "ProvisionedThroughput": {
-          "ReadCapacityUnits": 5,
-          "WriteCapacityUnits": 5
-        },
         "AttributeDefinitions": [
           {
             "AttributeName": "id",
             "AttributeType": "S"
           }
-        ]
-      }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        }
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain"
     },
     "MyQueuePollerServiceRole8BCA7659": {
       "Type": "AWS::IAM::Role",
@@ -96,12 +98,17 @@
                 "dynamodb:DeleteItem"
               ],
               "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "MyQueueCheckpointTableD0A503A4",
-                  "Arn"
-                ]
-              }
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "MyQueueCheckpointTableD0A503A4",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Ref": "AWS::NoValue"
+                }
+              ]
             }
           ],
           "Version": "2012-10-17"
@@ -119,7 +126,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": {
-            "Ref": "MyQueuePollerCodeS3Bucket1A4081A5"
+            "Ref": "AssetParameters915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8S3BucketA3B3DAB6"
           },
           "S3Key": {
             "Fn::Join": [
@@ -132,7 +139,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "MyQueuePollerCodeS3VersionKey748DFBB4"
+                          "Ref": "AssetParameters915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8S3VersionKey5F85F836"
                         }
                       ]
                     }
@@ -145,7 +152,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "MyQueuePollerCodeS3VersionKey748DFBB4"
+                          "Ref": "AssetParameters915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8S3VersionKey5F85F836"
                         }
                       ]
                     }
@@ -179,8 +186,8 @@
         "Timeout": 900
       },
       "DependsOn": [
-        "MyQueuePollerServiceRole8BCA7659",
-        "MyQueuePollerServiceRoleDefaultPolicy392B5642"
+        "MyQueuePollerServiceRoleDefaultPolicy392B5642",
+        "MyQueuePollerServiceRole8BCA7659"
       ]
     },
     "MyQueuePollerAllowEventRuleMyQueuePollingTimerB7F2AA5CCAED1690": {
@@ -188,7 +195,10 @@
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "MyQueuePoller59772903"
+          "Fn::GetAtt": [
+            "MyQueuePoller59772903",
+            "Arn"
+          ]
         },
         "Principal": "events.amazonaws.com",
         "SourceArn": {
@@ -212,20 +222,24 @@
                 "Arn"
               ]
             },
-            "Id": "Poller"
+            "Id": "Target0"
           }
         ]
       }
     }
   },
   "Parameters": {
-    "MyQueuePollerCodeS3Bucket1A4081A5": {
+    "AssetParameters915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8S3BucketA3B3DAB6": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"MyQueue/Poller/Code\""
+      "Description": "S3 bucket for asset \"915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8\""
     },
-    "MyQueuePollerCodeS3VersionKey748DFBB4": {
+    "AssetParameters915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8S3VersionKey5F85F836": {
       "Type": "String",
-      "Description": "S3 key for asset version \"MyQueue/Poller/Code\""
+      "Description": "S3 key for asset version \"915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8\""
+    },
+    "AssetParameters915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8ArtifactHash12C86F94": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"915531ded4cf29f7c10ce6427be0c87fdb48dc4fe42f91144c48a8d507725fc8\""
     }
   }
 }
