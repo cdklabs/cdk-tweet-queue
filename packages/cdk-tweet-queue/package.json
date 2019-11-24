@@ -7,13 +7,22 @@
   "scripts": {
     "build": "jsii && /bin/bash ./prepare.sh",
     "watch": "jsii -w",
-    "package": "jsii-pacmak",
+    "package": "jsii-pacmak && mkdir -p ../../dist && rsync -av dist/ ../../dist/",
     "test": "jest",
     "integ": "cdk -a 'node test/integ-test.js'"
   },
   "jsii": {
     "outdir": "dist",
     "targets": {
+      "dotnet": {
+        "namespace": "Eladb.CdkTweetQueue",
+        "packageId": "Eladb.CdkTweetQueue",
+        "signAssembly": false
+      },
+      "python": {
+        "distName": "cdk-tweet-queue",
+        "module": "cdk_tweet_queue"
+      },
       "java": {
         "package": "com.github.eladb.tweetqueue",
         "maven": {
