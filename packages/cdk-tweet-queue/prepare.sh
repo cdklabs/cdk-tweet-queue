@@ -35,6 +35,4 @@ rm ${tarball}
 # prepare lambda bundle
 cd ${staging}
 rm -fr ${dest}
-mkdir -p ${dest}
-zip -r ${dest}/bundle.zip .
-
+rsync -av . ${dest}/

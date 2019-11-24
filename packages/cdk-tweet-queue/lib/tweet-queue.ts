@@ -59,7 +59,7 @@ export class TweetQueue extends sqs.Queue {
     });
 
     const fn = new lambda.Function(this, 'Poller', {
-      code: lambda.Code.asset(path.join(__dirname, '..', 'lambda', 'bundle.zip')),
+      code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda')),
       handler: 'lib/index.handler',
       runtime: lambda.Runtime.NODEJS_8_10,
       timeout: Duration.minutes(15),

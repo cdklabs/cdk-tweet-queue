@@ -11,7 +11,8 @@ if (!secretArn) {
 }
 
 new TweetQueue(stack, 'queue', {
-  secretArn, query: 'aws'
+  secretArn, 
+  query: 'aws'
 });
 
 app.synth();
