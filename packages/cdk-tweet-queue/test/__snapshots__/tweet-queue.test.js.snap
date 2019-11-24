@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParameters7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7ArtifactHashF0EC0C18": Object {
+      "Description": "Artifact hash for asset \\"7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7\\"",
+      "Type": "String",
+    },
+    "AssetParameters7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7S3Bucket02880FBE": Object {
+      "Description": "S3 bucket for asset \\"7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7\\"",
+      "Type": "String",
+    },
+    "AssetParameters7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7S3VersionKeyDA6489DF": Object {
+      "Description": "S3 key for asset version \\"7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "MyQueueCheckpointTableD0A503A4": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "id",
+            "AttributeType": "S",
+          },
+        ],
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "id",
+            "KeyType": "HASH",
+          },
+        ],
+        "ProvisionedThroughput": Object {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5,
+        },
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "MyQueueE6CA6235": Object {
+      "Properties": Object {
+        "MessageRetentionPeriod": 60,
+        "VisibilityTimeout": 60,
+      },
+      "Type": "AWS::SQS::Queue",
+    },
+    "MyQueuePoller59772903": Object {
+      "DependsOn": Array [
+        "MyQueuePollerServiceRoleDefaultPolicy392B5642",
+        "MyQueuePollerServiceRole8BCA7659",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7S3Bucket02880FBE",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7S3VersionKeyDA6489DF",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters7745aa1c0cc6c452a41706380763026403763678f5feff0fabd15eac9eb07ac7S3VersionKeyDA6489DF",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "CHECKPOINT_TABLE_KEY_NAME": "id",
+            "CHECKPOINT_TABLE_NAME": Object {
+              "Ref": "MyQueueCheckpointTableD0A503A4",
+            },
+            "CREDENTIALS_SECRET": "secret-arn",
+            "QUEUE_URL": Object {
+              "Ref": "MyQueueE6CA6235",
+            },
+            "TWITTER_QUERY": "twitter query",
+          },
+        },
+        "Handler": "lib/index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "MyQueuePollerServiceRole8BCA7659",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs8.10",
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "MyQueuePollerAllowEventRuletestMyQueuePollingTimerEA3F515426FA7EBB": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "MyQueuePoller59772903",
+            "Arn",
+          ],
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "MyQueuePollingTimerDA561740",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "MyQueuePollerServiceRole8BCA7659": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "MyQueuePollerServiceRoleDefaultPolicy392B5642": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "secretsmanager:GetSecretValue",
+              "Effect": "Allow",
+              "Resource": "secret-arn",
+            },
+            Object {
+              "Action": Array [
+                "sqs:SendMessage",
+                "sqs:SendMessageBatch",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "MyQueueE6CA6235",
+                  "Arn",
+                ],
+              },
+            },
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "MyQueueCheckpointTableD0A503A4",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "MyQueuePollerServiceRoleDefaultPolicy392B5642",
+        "Roles": Array [
+          Object {
+            "Ref": "MyQueuePollerServiceRole8BCA7659",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "MyQueuePollingTimerDA561740": Object {
+      "Properties": Object {
+        "ScheduleExpression": "rate(1 minute)",
+        "State": "ENABLED",
+        "Targets": Array [
+          Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "MyQueuePoller59772903",
+                "Arn",
+              ],
+            },
+            "Id": "Target0",
+          },
+        ],
+      },
+      "Type": "AWS::Events::Rule",
+    },
+  },
+}
+`;
