@@ -21,14 +21,14 @@
     "tough-cookie"
   ],
   "dependencies": {
-    "aws-sdk": "^2.578.0",
+    "aws-sdk": "^2.619.0",
     "tough-cookie": "^3.0.1",
     "twitter": "^1.7.1"
   },
   "workspaces": {
-    "nohoist": [ 
-      "tough-cookie", 
-      "tough-cookie/**", 
+    "nohoist": [
+      "tough-cookie",
+      "tough-cookie/**",
       "twitter",
       "twitter/**"
     ]
@@ -38,7 +38,7 @@
     "url": "https://github.com/eladb/cdk-tweet-queue.git"
   },
   "devDependencies": {
-    "@types/node": "^12.12.12",
-    "typescript": "^3.7.2"
+    "@types/node": "^13.7.1",
+    "typescript": "^3.7.5"
   }
 }
