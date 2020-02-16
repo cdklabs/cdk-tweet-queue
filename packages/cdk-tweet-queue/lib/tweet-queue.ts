@@ -61,7 +61,7 @@ export class TweetQueue extends sqs.Queue {
     const fn = new lambda.Function(this, 'Poller', {
       code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda')),
       handler: 'lib/index.handler',
-      runtime: lambda.Runtime.NODEJS_8_10,
+      runtime: lambda.Runtime.NODEJS_12_X,
       timeout: Duration.minutes(15),
       environment: {
         CREDENTIALS_SECRET: props.secretArn,
