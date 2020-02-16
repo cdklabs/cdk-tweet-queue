@@ -10,6 +10,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "jsii-release": "^0.1.0",
     "lerna": "^3.4.3"
   }
 }
