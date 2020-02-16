@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "jsii && /bin/bash ./prepare.sh",
+    "build": "/bin/bash ./prepare.sh && jsii",
     "watch": "jsii -w",
     "package": "jsii-pacmak && mkdir -p ../../dist && rsync -av dist/ ../../dist/",
     "test": "jest",
