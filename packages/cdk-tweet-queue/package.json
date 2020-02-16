@@ -1,6 +1,6 @@
 {
   "name": "cdk-tweet-queue",
-  "version": "0.1.9",
+  "version": "1.0.0",
   "description": "Defines an SQS queue with tweet stream from a search",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -61,7 +61,7 @@
     "@aws-cdk/assert": "^1.24.0",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
-    "cdk-tweet-queue-poller": "^0.1.9",
+    "cdk-tweet-queue-poller": "^1.0.0",
     "jest": "^25.1.0",
     "jsii": "^0.22.0",
     "jsii-pacmak": "^0.22.0",
