@@ -1,5 +1,5 @@
 const Twitter = require('twitter');
-import { SecretsManager, SQS, DynamoDB } from 'aws-sdk';
+import { SecretsManager, SQS } from 'aws-sdk';
 import { CheckpointTable } from './checkpoint';
 import { getEnv } from './util';
 
