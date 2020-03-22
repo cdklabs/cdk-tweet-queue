@@ -29,7 +29,7 @@ export interface TweetQueueProps {
    * See: https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
    */
   readonly queryParams?: {
-    [x: string]: string | number | boolean
+    [x: string]: any
   };
 
   /**
