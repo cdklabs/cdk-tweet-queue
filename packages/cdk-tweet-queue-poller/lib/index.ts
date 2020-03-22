@@ -1,7 +1,7 @@
 const Twitter = require('twitter');
 import { SecretsManager, SQS } from 'aws-sdk';
 import { CheckpointTable } from './checkpoint';
-import { getEnv } from './util';
+import { getEnv, getJSONEnv, MissingEnvironmentVariableError, Json } from './util';
 
 const BATCH_SIZE = 100;
 const MAX_RESULTS = 500;
@@ -22,6 +22,15 @@ exports.handler = async function(event: any, _context: any) {
 
   const query = getEnv('TWITTER_QUERY');
 
+  let queryParams = {}
+  try {
+    queryParams = getJSONEnv<Json>('TWITTER_QUERY_PARAMS');
+  } catch (err) {
+    if (err.name !== MissingEnvironmentVariableError.name) {
+      throw err
+    }
+  }
+
   // read last checkpoint (can be undefined)
   const cursor_tail = await checkpoint.getLastCheckpoint();
   console.log('cursor_tail (last checkpoint):', cursor_tail);
@@ -31,7 +40,7 @@ exports.handler = async function(event: any, _context: any) {
   const results: { [id: string]: boolean } = { };
 
   while (true) {
-    const req = { q: query, count: BATCH_SIZE, max_id: cursor_head, since_id: cursor_tail };
+    const req = { ...queryParams, q: query, count: BATCH_SIZE, max_id: cursor_head, since_id: cursor_tail };
     console.error('twitter search:', JSON.stringify(req));
     const res: any = await twitter.get('search/tweets', req);
 

@@ -62,6 +62,7 @@ const queue = new TweetQueue(this, 'TweetStream', {
   query: '#awscdk',
 
   // optional properties
+  queryParams: {}           // optional: additional query parameters to pass to Twitter's search endpoint
   intervalMin: 60,          // optional: polling interval in minutes
   retentionPeriodSec: 60,   // optional: queue retention period
   visibilityTimeoutSec: 60, // optional: queue visilibity timeout

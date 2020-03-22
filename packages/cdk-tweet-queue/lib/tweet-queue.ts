@@ -25,6 +25,14 @@ export interface TweetQueueProps {
   readonly query: string;
 
   /**
+   * Extra twitter search parameters.
+   * See: https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
+   */
+  readonly queryParams?: {
+    [x: string]: string | number | boolean
+  };
+
+  /**
    * Polling interval in minutes.
    * Set to 0 to disable polling.
    * @default 1min
@@ -66,6 +74,7 @@ export class TweetQueue extends sqs.Queue {
       environment: {
         CREDENTIALS_SECRET: props.secretArn,
         TWITTER_QUERY: props.query,
+        TWITTER_QUERY_PARAMS: props.queryParams && JSON.stringify(props.queryParams),
         QUEUE_URL: this.queueUrl,
         CHECKPOINT_TABLE_NAME: table.tableName,
         CHECKPOINT_TABLE_KEY_NAME: keyName
