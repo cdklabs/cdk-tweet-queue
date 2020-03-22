@@ -74,7 +74,7 @@ export class TweetQueue extends sqs.Queue {
       environment: {
         CREDENTIALS_SECRET: props.secretArn,
         TWITTER_QUERY: props.query,
-        TWITTER_QUERY_PARAMS: props.queryParams && JSON.stringify(props.queryParams),
+        TWITTER_QUERY_PARAMS: props.queryParams != null ? JSON.stringify(props.queryParams) : undefined,
         QUEUE_URL: this.queueUrl,
         CHECKPOINT_TABLE_NAME: table.tableName,
         CHECKPOINT_TABLE_KEY_NAME: keyName
