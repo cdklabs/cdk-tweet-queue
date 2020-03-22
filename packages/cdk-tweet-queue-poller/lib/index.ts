@@ -32,7 +32,7 @@ exports.handler = async function(event: any, _context: any) {
 
   while (true) {
     const req = { q: query, count: BATCH_SIZE, max_id: cursor_head, since_id: cursor_tail };
-    console.error('twitter search:', JSON.stringify(req));
+    console.log('twitter search:', JSON.stringify(req));
     const res: any = await twitter.get('search/tweets', req);
 
     let min_id = res.search_metadata.max_id;
