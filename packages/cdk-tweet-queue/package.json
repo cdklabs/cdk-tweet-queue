@@ -63,8 +63,8 @@
     "@types/node": "^13.7.1",
     "cdk-tweet-queue-poller": "^1.0.0",
     "jest": "^25.1.0",
-    "jsii": "^0.22.0",
-    "jsii-pacmak": "^0.22.0",
+    "jsii": "^1.25.0",
+    "jsii-pacmak": "^1.25.0",
     "typescript": "^3.7.5"
   },
   "peerDependencies": {
