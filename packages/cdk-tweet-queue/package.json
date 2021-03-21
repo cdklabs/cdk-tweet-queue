@@ -59,10 +59,10 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.24.0",
-    "@types/jest": "^25.1.2",
+    "@types/jest": "^26.0.0",
     "@types/node": "^13.7.1",
     "cdk-tweet-queue-poller": "^1.0.0",
-    "jest": "^25.1.0",
+    "jest": "^26.0.0",
     "jsii": "^1.25.0",
     "jsii-pacmak": "^1.25.0",
     "typescript": "^3.7.5"
