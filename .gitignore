@@ -88,3 +88,6 @@ typings/
 
 # cdk output directory
 cdk.out/
+
+# TypeScript incremental build states
+*.tsbuildinfo
