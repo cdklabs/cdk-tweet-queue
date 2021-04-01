@@ -85,3 +85,6 @@ typings/
 .fusebox/
 
 # End of https://www.gitignore.io/api/node
+
+# cdk output directory
+cdk.out/
