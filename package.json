@@ -11,6 +11,6 @@
   ],
   "devDependencies": {
     "jsii-release": "^0.1.0",
-    "lerna": "^3.4.3"
+    "lerna": "^4.0.0"
   }
 }

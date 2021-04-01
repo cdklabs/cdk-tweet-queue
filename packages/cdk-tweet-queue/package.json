@@ -49,31 +49,31 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-cdk/aws-dynamodb": "^1.24.0",
-    "@aws-cdk/aws-events": "^1.24.0",
-    "@aws-cdk/aws-events-targets": "^1.24.0",
-    "@aws-cdk/aws-iam": "^1.24.0",
-    "@aws-cdk/aws-lambda": "^1.24.0",
-    "@aws-cdk/aws-sqs": "^1.24.0",
-    "@aws-cdk/core": "^1.24.0"
+    "@aws-cdk/aws-dynamodb": "^1.94.1",
+    "@aws-cdk/aws-events": "^1.94.1",
+    "@aws-cdk/aws-events-targets": "^1.94.1",
+    "@aws-cdk/aws-iam": "^1.94.1",
+    "@aws-cdk/aws-lambda": "^1.94.1",
+    "@aws-cdk/aws-sqs": "^1.94.1",
+    "@aws-cdk/core": "^1.94.1"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.24.0",
-    "@types/jest": "^25.1.2",
+    "@aws-cdk/assert": "^1.94.1",
+    "@types/jest": "^26.0.0",
     "@types/node": "^13.7.1",
     "cdk-tweet-queue-poller": "^1.0.0",
-    "jest": "^25.1.0",
+    "jest": "^26.0.0",
     "jsii": "^1.25.0",
     "jsii-pacmak": "^1.25.0",
     "typescript": "^3.7.5"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-dynamodb": "^1.24.0",
-    "@aws-cdk/aws-events": "^1.24.0",
-    "@aws-cdk/aws-events-targets": "^1.24.0",
-    "@aws-cdk/aws-iam": "^1.24.0",
-    "@aws-cdk/aws-lambda": "^1.24.0",
-    "@aws-cdk/aws-sqs": "^1.24.0",
-    "@aws-cdk/core": "^1.24.0"
+    "@aws-cdk/aws-dynamodb": "^1.94.1",
+    "@aws-cdk/aws-events": "^1.94.1",
+    "@aws-cdk/aws-events-targets": "^1.94.1",
+    "@aws-cdk/aws-iam": "^1.94.1",
+    "@aws-cdk/aws-lambda": "^1.94.1",
+    "@aws-cdk/aws-sqs": "^1.94.1",
+    "@aws-cdk/core": "^1.94.1"
   }
 }

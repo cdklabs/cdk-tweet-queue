@@ -3,16 +3,16 @@
 exports[`snapshot 1`] = `
 Object {
   "Parameters": Object {
-    "AssetParameters90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79fArtifactHash5D2E807B": Object {
-      "Description": "Artifact hash for asset \\"90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79f\\"",
+    "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaArtifactHashF9DE92E9": Object {
+      "Description": "Artifact hash for asset \\"58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962ea\\"",
       "Type": "String",
     },
-    "AssetParameters90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79fS3BucketDAE6CA28": Object {
-      "Description": "S3 bucket for asset \\"90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79f\\"",
+    "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3BucketF6CD96EC": Object {
+      "Description": "S3 bucket for asset \\"58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962ea\\"",
       "Type": "String",
     },
-    "AssetParameters90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79fS3VersionKey8288807B": Object {
-      "Description": "S3 key for asset version \\"90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79f\\"",
+    "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3VersionKeyE9B93880": Object {
+      "Description": "S3 key for asset version \\"58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962ea\\"",
       "Type": "String",
     },
   },
@@ -41,11 +41,13 @@ Object {
       "UpdateReplacePolicy": "Retain",
     },
     "MyQueueE6CA6235": Object {
+      "DeletionPolicy": "Delete",
       "Properties": Object {
         "MessageRetentionPeriod": 60,
         "VisibilityTimeout": 60,
       },
       "Type": "AWS::SQS::Queue",
+      "UpdateReplacePolicy": "Delete",
     },
     "MyQueuePoller59772903": Object {
       "DependsOn": Array [
@@ -55,7 +57,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79fS3BucketDAE6CA28",
+            "Ref": "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3BucketF6CD96EC",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -68,7 +70,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79fS3VersionKey8288807B",
+                          "Ref": "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3VersionKeyE9B93880",
                         },
                       ],
                     },
@@ -81,7 +83,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters90c3d74ed6cbc5bc950459a6cd9c090f281edfbd2c063bb3a544b4191c42b79fS3VersionKey8288807B",
+                          "Ref": "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3VersionKeyE9B93880",
                         },
                       ],
                     },
@@ -115,25 +117,6 @@ Object {
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
-    },
-    "MyQueuePollerAllowEventRuletestMyQueuePollingTimerEA3F515426FA7EBB": Object {
-      "Properties": Object {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": Object {
-          "Fn::GetAtt": Array [
-            "MyQueuePoller59772903",
-            "Arn",
-          ],
-        },
-        "Principal": "events.amazonaws.com",
-        "SourceArn": Object {
-          "Fn::GetAtt": Array [
-            "MyQueuePollingTimerDA561740",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "AWS::Lambda::Permission",
     },
     "MyQueuePollerServiceRole8BCA7659": Object {
       "Properties": Object {
@@ -196,6 +179,7 @@ Object {
                 "dynamodb:Query",
                 "dynamodb:GetItem",
                 "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
                 "dynamodb:BatchWriteItem",
                 "dynamodb:PutItem",
                 "dynamodb:UpdateItem",
@@ -225,6 +209,25 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Policy",
+    },
+    "MyQueuePollingTimerAllowEventRuletestMyQueuePollerB07A880A2C004B07": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "MyQueuePoller59772903",
+            "Arn",
+          ],
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "MyQueuePollingTimerDA561740",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
     },
     "MyQueuePollingTimerDA561740": Object {
       "Properties": Object {
