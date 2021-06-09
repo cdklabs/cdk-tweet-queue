@@ -1,4 +1,5 @@
-import { DynamoDB, AWSError } from 'aws-sdk';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { DynamoDB } from 'aws-sdk';
 import { getEnv } from './util';
 
 export interface CheckpointTableOptions {
@@ -36,13 +37,13 @@ export class CheckpointTable {
     const req: DynamoDB.GetItemInput = {
       TableName: this.tableName,
       Key: {
-        [this.keyName]: { S: 'max_id' }
-      }
+        [this.keyName]: { S: 'max_id' },
+      },
     };
 
     const response = await this.dynamodb.getItem(req).promise();
     if (!response.Item) {
-      console.error('no max_id stored in database yet')
+      console.error('no max_id stored in database yet');
       return undefined; // not found
     }
 
@@ -54,8 +55,8 @@ export class CheckpointTable {
       TableName: this.tableName,
       Item: {
         [this.keyName]: { S: 'max_id' },
-        max_id: { N: id.toString() }
-      }
+        max_id: { N: id.toString() },
+      },
     };
 
     await this.dynamodb.putItem(req).promise();

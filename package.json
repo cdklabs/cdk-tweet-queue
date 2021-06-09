@@ -1,16 +1,166 @@
 {
-  "name": "root",
-  "private": true,
-  "scripts": {
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "package": "lerna run package"
+  "name": "cdk-tweet-queue",
+  "description": "Defines an SQS queue with tweet stream from a search",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eladb/cdk-tweet-queue"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "scripts": {
+    "clobber": "npx projen clobber",
+    "compile": "npx projen compile",
+    "test:compile": "npx projen test:compile",
+    "test": "npx projen test",
+    "build": "npx projen build",
+    "test:watch": "npx projen test:watch",
+    "test:update": "npx projen test:update",
+    "bump": "npx projen bump",
+    "unbump": "npx projen unbump",
+    "upgrade-dependencies": "npx projen upgrade-dependencies",
+    "upgrade-projen": "npx projen upgrade-projen",
+    "default": "npx projen default",
+    "watch": "npx projen watch",
+    "package": "npx projen package",
+    "eslint": "npx projen eslint",
+    "compat": "npx projen compat",
+    "docgen": "npx projen docgen",
+    "integ:deploy": "npx projen integ:deploy",
+    "integ:destroy": "npx projen integ:destroy",
+    "projen": "npx projen",
+    "start": "npx projen start",
+    "integ": "npx cdk -a 'node lib/__tests__/integ-test.js'"
+  },
+  "author": {
+    "name": "Elad Ben-Israel",
+    "email": "elad.benisrael@gmail.com",
+    "organization": false
+  },
   "devDependencies": {
-    "jsii-release": "^0.1.0",
-    "lerna": "^4.0.0"
-  }
+    "@aws-cdk/assert": "^1.108.0",
+    "@aws-cdk/aws-dynamodb": "^1.108.0",
+    "@aws-cdk/aws-events": "^1.108.0",
+    "@aws-cdk/aws-events-targets": "^1.108.0",
+    "@aws-cdk/aws-iam": "^1.108.0",
+    "@aws-cdk/aws-lambda": "^1.108.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.108.0",
+    "@aws-cdk/aws-sqs": "^1.108.0",
+    "@aws-cdk/core": "^1.108.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^10.17.0",
+    "@types/twitter": "^1.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "aws-cdk": "^1.108.0",
+    "aws-sdk": "^2.925.0",
+    "constructs": "^3.3.77",
+    "esbuild": "^0.12.8",
+    "eslint": "^7.28.0",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "jest": "^26.0.0",
+    "jest-junit": "^12",
+    "jsii": "^1.25.0",
+    "jsii-diff": "^1.30.0",
+    "jsii-docgen": "^1.8.90",
+    "jsii-pacmak": "^1.25.0",
+    "json-schema": "^0.3.0",
+    "npm-check-updates": "^11",
+    "projen": "^0.22.13",
+    "standard-version": "^9",
+    "twitter": "^1.7.1",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "@aws-cdk/aws-dynamodb": "^1.108.0",
+    "@aws-cdk/aws-events": "^1.108.0",
+    "@aws-cdk/aws-events-targets": "^1.108.0",
+    "@aws-cdk/aws-iam": "^1.108.0",
+    "@aws-cdk/aws-lambda": "^1.108.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.108.0",
+    "@aws-cdk/aws-sqs": "^1.108.0",
+    "@aws-cdk/core": "^1.108.0",
+    "constructs": "^3.3.77"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-dynamodb": "^1.108.0",
+    "@aws-cdk/aws-events": "^1.108.0",
+    "@aws-cdk/aws-events-targets": "^1.108.0",
+    "@aws-cdk/aws-iam": "^1.108.0",
+    "@aws-cdk/aws-lambda": "^1.108.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.108.0",
+    "@aws-cdk/aws-sqs": "^1.108.0",
+    "@aws-cdk/core": "^1.108.0",
+    "constructs": "^3.3.77"
+  },
+  "bundledDependencies": [],
+  "keywords": [
+    "aws-cdk",
+    "cdk",
+    "constructs",
+    "twitter"
+  ],
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "jest": {
+    "testMatch": [
+      "**/lib/__tests__/**/?(*.)+(spec|test).js?(x)"
+    ],
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "clover",
+      "text"
+    ],
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "watchPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "test-reports"
+        }
+      ]
+    ],
+    "snapshotResolver": "./.projen/jest-snapshot-resolver.js"
+  },
+  "types": "lib/index.d.ts",
+  "stability": "stable",
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "java": {
+        "package": "com.github.eladb.tweetqueue",
+        "maven": {
+          "groupId": "com.github.eladb",
+          "artifactId": "cdk-tweet-queue"
+        }
+      },
+      "python": {
+        "distName": "cdk-tweet-queue",
+        "module": "cdk_tweet_queue"
+      },
+      "dotnet": {
+        "namespace": "Eladb.CdkTweetQueue",
+        "packageId": "Eladb.CdkTweetQueue"
+      }
+    },
+    "tsc": {
+      "outDir": "lib",
+      "rootDir": "lib"
+    }
+  },
+  "//": "~~ Generated by projen. To modify, edit .projenrc.js and run \"npx projen\"."
 }

@@ -3,16 +3,16 @@
 exports[`snapshot 1`] = `
 Object {
   "Parameters": Object {
-    "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaArtifactHashF9DE92E9": Object {
-      "Description": "Artifact hash for asset \\"58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962ea\\"",
+    "AssetParameters49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3ArtifactHashB61C0C4D": Object {
+      "Description": "Artifact hash for asset \\"49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3\\"",
       "Type": "String",
     },
-    "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3BucketF6CD96EC": Object {
-      "Description": "S3 bucket for asset \\"58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962ea\\"",
+    "AssetParameters49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3S3Bucket0C8523C0": Object {
+      "Description": "S3 bucket for asset \\"49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3\\"",
       "Type": "String",
     },
-    "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3VersionKeyE9B93880": Object {
-      "Description": "S3 key for asset version \\"58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962ea\\"",
+    "AssetParameters49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3S3VersionKey559B4073": Object {
+      "Description": "S3 key for asset version \\"49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3\\"",
       "Type": "String",
     },
   },
@@ -57,7 +57,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3BucketF6CD96EC",
+            "Ref": "AssetParameters49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3S3Bucket0C8523C0",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -70,7 +70,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3VersionKeyE9B93880",
+                          "Ref": "AssetParameters49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3S3VersionKey559B4073",
                         },
                       ],
                     },
@@ -83,7 +83,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters58ecd4e5a7eb311b5b105744e4f8c5a0812f01edce946c18524424a3eb9962eaS3VersionKeyE9B93880",
+                          "Ref": "AssetParameters49c0d75383affb2d39211571b1193142dcfebb1edd7c20dd6c77cd838c0350b3S3VersionKey559B4073",
                         },
                       ],
                     },
@@ -95,6 +95,7 @@ Object {
         },
         "Environment": Object {
           "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
             "CHECKPOINT_TABLE_KEY_NAME": "id",
             "CHECKPOINT_TABLE_NAME": Object {
               "Ref": "MyQueueCheckpointTableD0A503A4",
@@ -106,14 +107,14 @@ Object {
             "TWITTER_QUERY": "twitter query",
           },
         },
-        "Handler": "lib/index.handler",
+        "Handler": "index.handler",
         "Role": Object {
           "Fn::GetAtt": Array [
             "MyQueuePollerServiceRole8BCA7659",
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs14.x",
         "Timeout": 900,
       },
       "Type": "AWS::Lambda::Function",
