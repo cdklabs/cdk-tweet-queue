@@ -143,34 +143,13 @@
       },
       "steps": [
         {
-          "exec": "npm-check-updates --upgrade --target=minor --reject='projen'"
+          "exec": "npm-check-updates --upgrade --target=minor"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @aws-cdk/assert @aws-cdk/aws-dynamodb @aws-cdk/aws-events @aws-cdk/aws-events-targets @aws-cdk/aws-iam @aws-cdk/aws-lambda @aws-cdk/aws-lambda-nodejs @aws-cdk/aws-sqs @aws-cdk/core @types/jest @types/node @types/twitter @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk aws-sdk constructs esbuild eslint eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema npm-check-updates standard-version twitter typescript @aws-cdk/aws-dynamodb @aws-cdk/aws-events @aws-cdk/aws-events-targets @aws-cdk/aws-iam @aws-cdk/aws-lambda @aws-cdk/aws-lambda-nodejs @aws-cdk/aws-sqs @aws-cdk/core constructs @aws-cdk/aws-dynamodb @aws-cdk/aws-events @aws-cdk/aws-events-targets @aws-cdk/aws-iam @aws-cdk/aws-lambda @aws-cdk/aws-lambda-nodejs @aws-cdk/aws-sqs @aws-cdk/core constructs"
-        },
-        {
-          "exec": "npx projen"
-        }
-      ]
-    },
-    "upgrade-projen": {
-      "name": "upgrade-projen",
-      "description": "upgrade projen",
-      "env": {
-        "CI": "0"
-      },
-      "steps": [
-        {
-          "exec": "npm-check-updates --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "yarn install --check-files"
-        },
-        {
-          "exec": "yarn upgrade projen"
+          "exec": "yarn upgrade"
         },
         {
           "exec": "npx projen"
