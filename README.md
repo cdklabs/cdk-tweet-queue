@@ -74,28 +74,31 @@ function by setting up an SQS event source mapping.
 
 ## Development
 
-This is a mono-repo which uses [lerna](https://github.com/lerna/lerna). Here are
-some useful commands:
+The project is managed by [projen](https://github.com/projen/projen) and offers the following commands:
 
-- `lerna run build` - builds all code
-- `lerna run watch --stream` -- runs `tsc -w` in all modules (in parallel)
-- `lerna run test` - tests all code
+- `yarn projen` - Synthesize the project configuration.
+- `yarn compile` - Compile all source code.
+- `yarn test` - Run all tests.
+- `yarn build` - Complie, test, and package the module.
 
-There is also an integration test that can be executed from the cdk-tweet-queue
-package by running the following commands. You will need to set the
-`TWEET_QUEUE_SECRET_ARN` environment variable in order for the test to be able
-to use your Twitter API keys.
+## Integration test
+
+There is also an integration test that can be executed by running the following commands. You will need to set the `TWEET_QUEUE_SECRET_ARN` environment variable in order for the test to be able to use your Twitter API keys.
 
 ```console
-$ npm run integ deploy
-...
+$ yarn integ:deploy
 ```
 
 Don't forget to destroy:
 
 ```console
-$ npm run integ destroy
-...
+$ yarn integ:destroy
+```
+
+You can also run any cdk command on the integration test application by running:
+
+```console
+yarn integ <command>
 ```
 
 ## License

@@ -1,5 +1,5 @@
-import cdk = require('@aws-cdk/core');
-import { TweetQueue } from '../lib';
+import * as cdk from '@aws-cdk/core';
+import { TweetQueue } from '..';
 
 const app = new cdk.App();
 
@@ -11,8 +11,8 @@ if (!secretArn) {
 }
 
 new TweetQueue(stack, 'queue', {
-  secretArn, 
-  query: 'aws'
+  secretArn,
+  query: 'aws',
 });
 
 app.synth();

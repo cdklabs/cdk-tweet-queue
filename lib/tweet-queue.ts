@@ -1,11 +1,11 @@
-import cdk = require('@aws-cdk/core');
-import iam = require('@aws-cdk/aws-iam');
-import sqs = require('@aws-cdk/aws-sqs');
-import lambda = require('@aws-cdk/aws-lambda');
-import targets = require('@aws-cdk/aws-events-targets');
-import dynamodb = require('@aws-cdk/aws-dynamodb');
-import events = require('@aws-cdk/aws-events');
-import path = require('path');
+import * as path from 'path';
+import * as dynamodb from '@aws-cdk/aws-dynamodb';
+import * as events from '@aws-cdk/aws-events';
+import * as targets from '@aws-cdk/aws-events-targets';
+import * as iam from '@aws-cdk/aws-iam';
+import * as lambda from '@aws-cdk/aws-lambda-nodejs';
+import * as sqs from '@aws-cdk/aws-sqs';
+import * as cdk from '@aws-cdk/core';
 import { Duration } from '@aws-cdk/core';
 
 export interface TweetQueueProps {
@@ -50,36 +50,34 @@ export class TweetQueue extends sqs.Queue {
   constructor(parent: cdk.Construct, id: string, props: TweetQueueProps) {
     super(parent, id, {
       retentionPeriod: props.retentionPeriodSec === undefined ? Duration.seconds(60) : Duration.seconds(props.retentionPeriodSec),
-      visibilityTimeout: props.visibilityTimeoutSec === undefined ? Duration.seconds(60) : Duration.seconds(props.visibilityTimeoutSec)
+      visibilityTimeout: props.visibilityTimeoutSec === undefined ? Duration.seconds(60) : Duration.seconds(props.visibilityTimeoutSec),
     });
 
     const keyName = 'id';
     const table = new dynamodb.Table(this, 'CheckpointTable', {
-      partitionKey: { name: keyName, type: dynamodb.AttributeType.STRING }
+      partitionKey: { name: keyName, type: dynamodb.AttributeType.STRING },
     });
 
-    const fn = new lambda.Function(this, 'Poller', {
-      code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda')),
-      handler: 'lib/index.handler',
-      runtime: lambda.Runtime.NODEJS_12_X,
+    const fn = new lambda.NodejsFunction(this, 'Poller', {
+      entry: path.join(__dirname, 'poller', 'index.ts'),
       timeout: Duration.minutes(15),
       environment: {
         CREDENTIALS_SECRET: props.secretArn,
         TWITTER_QUERY: props.query,
         QUEUE_URL: this.queueUrl,
         CHECKPOINT_TABLE_NAME: table.tableName,
-        CHECKPOINT_TABLE_KEY_NAME: keyName
-      }
+        CHECKPOINT_TABLE_KEY_NAME: keyName,
+      },
     });
 
     fn.addToRolePolicy(new iam.PolicyStatement({
-      resources: [ props.secretArn ],
-      actions: [ 'secretsmanager:GetSecretValue' ]
+      resources: [props.secretArn],
+      actions: ['secretsmanager:GetSecretValue'],
     }));
 
     fn.addToRolePolicy(new iam.PolicyStatement({
-      resources: [ this.queueArn ],
-      actions: [ 'sqs:SendMessage', 'sqs:SendMessageBatch' ]
+      resources: [this.queueArn],
+      actions: ['sqs:SendMessage', 'sqs:SendMessageBatch'],
     }));
 
     table.grantReadWriteData(fn);
@@ -87,7 +85,7 @@ export class TweetQueue extends sqs.Queue {
     const interval = props.intervalMin === undefined ? 1 : props.intervalMin;
     if (interval > 0) {
       const timer = new events.Rule(this, 'PollingTimer', {
-        schedule: events.Schedule.rate(Duration.minutes(interval))
+        schedule: events.Schedule.rate(Duration.minutes(interval)),
       });
 
       timer.addTarget(new targets.LambdaFunction(fn));
