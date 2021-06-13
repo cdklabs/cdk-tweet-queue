@@ -18,6 +18,7 @@ const project = new JsiiProject({
   authorName: 'Elad Ben-Israel',
   authorEmail: 'elad.benisrael@gmail.com',
   repository: 'https://github.com/eladb/cdk-tweet-queue',
+  projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   releaseToNpm: true,
   publishToNuget: {
     dotNetNamespace: 'Eladb.CdkTweetQueue',
@@ -51,6 +52,11 @@ const project = new JsiiProject({
   ],
   srcdir: 'lib',
   testdir: 'lib/__tests__',
+  autoApproveOptions: {
+    allowedUsernames: ['aws-cdk-automation'],
+    secret: 'GITHUB_TOKEN',
+  },
+  autoApproveUpgrades: true,
 });
 
 project.gitignore.exclude('cdk.out');
