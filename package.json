@@ -49,8 +49,8 @@
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "aws-cdk": "^1.110.0",
-    "aws-sdk": "^2.934.0",
-    "constructs": "^3.3.88",
+    "aws-sdk": "^2.935.0",
+    "constructs": "^3.3.89",
     "esbuild": "^0.12.9",
     "eslint": "^7.29.0",
     "eslint-import-resolver-node": "^0.3.4",
@@ -60,7 +60,7 @@
     "jest-junit": "^12",
     "jsii": "^1.30.0",
     "jsii-diff": "^1.30.0",
-    "jsii-docgen": "^1.8.104",
+    "jsii-docgen": "^1.8.105",
     "jsii-pacmak": "^1.30.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
@@ -78,7 +78,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.110.0",
     "@aws-cdk/aws-sqs": "^1.110.0",
     "@aws-cdk/core": "^1.110.0",
-    "constructs": "^3.3.88"
+    "constructs": "^3.3.89"
   },
   "dependencies": {
     "@aws-cdk/aws-dynamodb": "^1.110.0",
@@ -89,7 +89,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.110.0",
     "@aws-cdk/aws-sqs": "^1.110.0",
     "@aws-cdk/core": "^1.110.0",
-    "constructs": "^3.3.88"
+    "constructs": "^3.3.89"
   },
   "bundledDependencies": [],
   "keywords": [
