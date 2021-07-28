@@ -54,8 +54,8 @@
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "aws-cdk": "^1.115.0",
-    "aws-sdk": "^2.954.0",
-    "constructs": "^3.3.104",
+    "aws-sdk": "^2.955.0",
+    "constructs": "^3.3.106",
     "esbuild": "^0.12.16",
     "eslint": "^7.31.0",
     "eslint-import-resolver-node": "^0.3.4",
@@ -69,7 +69,7 @@
     "jsii-pacmak": "^1.32.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.27.7",
+    "projen": "^0.27.9",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
@@ -83,7 +83,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.115.0",
     "@aws-cdk/aws-sqs": "^1.115.0",
     "@aws-cdk/core": "^1.115.0",
-    "constructs": "^3.3.104"
+    "constructs": "^3.3.106"
   },
   "dependencies": {
     "@aws-cdk/aws-dynamodb": "^1.115.0",
@@ -94,7 +94,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.115.0",
     "@aws-cdk/aws-sqs": "^1.115.0",
     "@aws-cdk/core": "^1.115.0",
-    "constructs": "^3.3.104"
+    "constructs": "^3.3.106"
   },
   "bundledDependencies": [],
   "keywords": [
