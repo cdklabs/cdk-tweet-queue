@@ -30,7 +30,6 @@
     "integ:destroy": "npx projen integ:destroy",
     "release": "npx projen release",
     "projen": "npx projen",
-    "start": "npx projen start",
     "integ": "npx cdk -a 'node lib/__tests__/integ-test.js'"
   },
   "author": {
@@ -54,9 +53,9 @@
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "aws-cdk": "^1.116.0",
-    "aws-sdk": "^2.956.0",
+    "aws-sdk": "^2.957.0",
     "constructs": "^3.3.107",
-    "esbuild": "^0.12.16",
+    "esbuild": "^0.12.17",
     "eslint": "^7.31.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -69,7 +68,7 @@
     "jsii-pacmak": "^1.32.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.27.11",
+    "projen": "^0.27.12",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
