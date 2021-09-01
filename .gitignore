@@ -42,6 +42,8 @@ junit.xml
 !/.github/pull_request_template.md
 !/lib/__tests__/
 !/lib/
+/lib/**/*.js
+/lib/**/*.d.ts
 /dist/
 !/.projen/jest-snapshot-resolver.js
 !/.eslintrc.json
