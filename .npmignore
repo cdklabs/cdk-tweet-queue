@@ -6,7 +6,7 @@ junit.xml
 /dist/changelog.md
 /dist/version.txt
 /.mergify.yml
-/lib/
+!/lib/
 !/lib/**/*.js
 !/lib/**/*.d.ts
 dist
