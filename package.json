@@ -146,9 +146,9 @@
     "outdir": "dist",
     "targets": {
       "java": {
-        "package": "com.github.eladb.tweetqueue",
+        "package": "io.github.cdklabs.tweetqueue",
         "maven": {
-          "groupId": "com.github.eladb",
+          "groupId": "io.github.cdklabs",
           "artifactId": "cdk-tweet-queue"
         }
       },
@@ -157,8 +157,8 @@
         "module": "cdk_tweet_queue"
       },
       "dotnet": {
-        "namespace": "Eladb.CdkTweetQueue",
-        "packageId": "Eladb.CdkTweetQueue"
+        "namespace": "Cdklabs.CdkTweetQueue",
+        "packageId": "Cdklabs.CdkTweetQueue"
       }
     },
     "tsc": {
