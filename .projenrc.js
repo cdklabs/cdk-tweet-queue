@@ -21,13 +21,14 @@ const project = new JsiiProject({
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   releaseToNpm: true,
   publishToNuget: {
-    dotNetNamespace: 'Eladb.CdkTweetQueue',
-    packageId: 'Eladb.CdkTweetQueue',
+    dotNetNamespace: 'Cdklabs.CdkTweetQueue',
+    packageId: 'Cdklabs.CdkTweetQueue',
   },
   publishToMaven: {
-    javaPackage: 'com.github.eladb.tweetqueue',
+    mavenGroupId: 'io.github.cdklabs',
+    mavenEndpoint: 'https://s01.oss.sonatype.org',
+    javaPackage: 'io.github.cdklabs.tweetqueue',
     mavenArtifactId: 'cdk-tweet-queue',
-    mavenGroupId: 'com.github.eladb',
   },
   publishToPypi: {
     distName: 'cdk-tweet-queue',
