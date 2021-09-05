@@ -54,7 +54,7 @@ const project = new JsiiProject({
   srcdir: 'lib',
   testdir: 'lib/__tests__',
   autoApproveOptions: {
-    allowedUsernames: ['aws-cdk-automation'],
+    allowedUsernames: ['cdklabs-automation'],
     secret: 'GITHUB_TOKEN',
   },
   autoApproveUpgrades: true,
