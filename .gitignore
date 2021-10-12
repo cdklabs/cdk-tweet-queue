@@ -40,13 +40,13 @@ junit.xml
 !/.mergify.yml
 !/.github/pull_request_template.md
 !/lib/__tests__/
+!/tsconfig.dev.json
 !/lib/
 /lib/**/*.js
 /lib/**/*.d.ts
 /dist/
 !/.projen/jest-snapshot-resolver.js
 !/.eslintrc.json
-!/tsconfig.eslint.json
 .jsii
 tsconfig.json
 !/API.md
