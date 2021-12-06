@@ -1,4 +1,4 @@
-const { JsiiProject } = require('projen');
+const { cdk } = require('projen');
 
 const cdkDeps = [
   '@aws-cdk/aws-dynamodb',
@@ -12,7 +12,7 @@ const cdkDeps = [
   'constructs',
 ];
 
-const project = new JsiiProject({
+const project = new cdk.JsiiProject({
   name: 'cdk-tweet-queue',
   description: 'Defines an SQS queue with tweet stream from a search',
   authorName: 'Elad Ben-Israel',
