@@ -55,7 +55,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk": "^1.134.0",
-    "aws-sdk": "^2.1044.0",
+    "aws-sdk": "^2.1045.0",
     "constructs": "^3.3.162",
     "esbuild": "^0.14.2",
     "eslint": "^8",
@@ -70,7 +70,7 @@
     "jsii-pacmak": "^1.47.0",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^11",
-    "projen": "^0.38.2",
+    "projen": "^0.39.2",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
