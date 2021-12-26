@@ -5,44 +5,12 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/aws-dynamodb",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-events",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-events-targets",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-iam",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda-nodejs",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/aws-sqs",
-      "type": "build"
-    },
-    {
-      "name": "@aws-cdk/core",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "type": "build"
     },
     {
       "name": "@types/node",
-      "version": "^14.17.0",
+      "version": "^12",
       "type": "build"
     },
     {
@@ -65,10 +33,6 @@
     },
     {
       "name": "aws-sdk",
-      "type": "build"
-    },
-    {
-      "name": "constructs",
       "type": "build"
     },
     {
@@ -123,7 +87,7 @@
     },
     {
       "name": "npm-check-updates",
-      "version": "^11",
+      "version": "^12",
       "type": "build"
     },
     {
