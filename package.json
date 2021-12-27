@@ -17,6 +17,11 @@
     "integ:deploy": "npx projen integ:deploy",
     "integ:destroy": "npx projen integ:destroy",
     "package": "npx projen package",
+    "package-all": "npx projen package-all",
+    "package:dotnet": "npx projen package:dotnet",
+    "package:java": "npx projen package:java",
+    "package:js": "npx projen package:js",
+    "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
@@ -53,10 +58,9 @@
     "jsii": "^1.50.0",
     "jsii-diff": "^1.50.0",
     "jsii-docgen": "^1.8.110",
-    "jsii-pacmak": "^1.50.0",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
-    "projen": "^0.45.4",
+    "projen": "^0.46.1",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
@@ -70,7 +74,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.137.0",
     "@aws-cdk/aws-sqs": "^1.137.0",
     "@aws-cdk/core": "^1.137.0",
-    "constructs": "^3.3.168"
+    "constructs": "^3.3.169"
   },
   "dependencies": {
     "@aws-cdk/aws-dynamodb": "^1.137.0",
@@ -81,7 +85,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.137.0",
     "@aws-cdk/aws-sqs": "^1.137.0",
     "@aws-cdk/core": "^1.137.0",
-    "constructs": "^3.3.168"
+    "constructs": "^3.3.169"
   },
   "bundledDependencies": [],
   "keywords": [
