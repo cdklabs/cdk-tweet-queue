@@ -60,7 +60,7 @@
     "jsii-docgen": "^1.8.110",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
-    "projen": "^0.46.1",
+    "projen": "^0.46.3",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
@@ -74,7 +74,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.137.0",
     "@aws-cdk/aws-sqs": "^1.137.0",
     "@aws-cdk/core": "^1.137.0",
-    "constructs": "^3.3.169"
+    "constructs": "^3.3.170"
   },
   "dependencies": {
     "@aws-cdk/aws-dynamodb": "^1.137.0",
@@ -85,7 +85,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.137.0",
     "@aws-cdk/aws-sqs": "^1.137.0",
     "@aws-cdk/core": "^1.137.0",
-    "constructs": "^3.3.169"
+    "constructs": "^3.3.170"
   },
   "bundledDependencies": [],
   "keywords": [
