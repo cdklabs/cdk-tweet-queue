@@ -13,6 +13,7 @@
     "compile": "npx projen compile",
     "default": "npx projen default",
     "docgen": "npx projen docgen",
+    "eject": "npx projen eject",
     "eslint": "npx projen eslint",
     "integ:deploy": "npx projen integ:deploy",
     "integ:destroy": "npx projen integ:destroy",
@@ -48,8 +49,8 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk": "^1.140.0",
-    "aws-sdk": "^2.1062.0",
-    "esbuild": "^0.14.13",
+    "aws-sdk": "^2.1063.0",
+    "esbuild": "^0.14.14",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.5.0",
@@ -61,7 +62,7 @@
     "jsii-docgen": "^1.8.110",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
-    "projen": "^0.51.14",
+    "projen": "^0.52.0",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
@@ -75,7 +76,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.140.0",
     "@aws-cdk/aws-sqs": "^1.140.0",
     "@aws-cdk/core": "^1.140.0",
-    "constructs": "^3.3.198"
+    "constructs": "^3.3.199"
   },
   "dependencies": {
     "@aws-cdk/aws-dynamodb": "^1.140.0",
@@ -86,7 +87,7 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.140.0",
     "@aws-cdk/aws-sqs": "^1.140.0",
     "@aws-cdk/core": "^1.140.0",
-    "constructs": "^3.3.198"
+    "constructs": "^3.3.199"
   },
   "keywords": [
     "aws-cdk",
