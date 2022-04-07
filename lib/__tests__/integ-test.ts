@@ -1,9 +1,9 @@
-import * as cdk from '@aws-cdk/core';
+import { App, Stack } from 'aws-cdk-lib';
 import { TweetQueue } from '..';
 
-const app = new cdk.App();
+const app = new App();
 
-const stack = new cdk.Stack(app, 'tweet-queue-test');
+const stack = new Stack(app, 'tweet-queue-test');
 
 const secretArn = process.env.TWEET_QUEUE_SECRET_ARN;
 if (!secretArn) {
