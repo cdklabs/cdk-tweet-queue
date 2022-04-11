@@ -33,7 +33,7 @@ const project = new cdk.JsiiProject({
   ],
   devDeps: [
     'aws-cdk-lib',
-    'aws-cdk',
+    'aws-cdk@^2.20.0',
     'aws-sdk',
     'twitter',
     '@types/twitter',
@@ -42,7 +42,7 @@ const project = new cdk.JsiiProject({
   ],
   keywords: [
     'cdk',
-    'aws-cdk',
+    'aws-cdk@^2.20.0',
     'twitter',
     'constructs',
   ],

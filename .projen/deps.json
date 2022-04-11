@@ -24,11 +24,12 @@
       "type": "build"
     },
     {
-      "name": "aws-cdk",
+      "name": "aws-cdk-lib",
       "type": "build"
     },
     {
-      "name": "aws-cdk-lib",
+      "name": "aws-cdk",
+      "version": "^2.20.0",
       "type": "build"
     },
     {
