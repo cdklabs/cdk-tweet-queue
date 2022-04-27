@@ -42,14 +42,15 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.153.1",
     "@types/jest": "^27.4.1",
     "@types/node": "^12",
     "@types/twitter": "^1.7.1",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk": "^1.153.1",
-    "aws-sdk": "^2.1122.0",
+    "aws-cdk": "^2.20.0",
+    "aws-cdk-lib": "^2.20.0",
+    "aws-sdk": "^2.1112.0",
+    "constructs": "^10.0.111",
     "esbuild": "^0.14.38",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -69,29 +70,15 @@
     "typescript": "^3.9.10"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-dynamodb": "^1.153.1",
-    "@aws-cdk/aws-events": "^1.153.1",
-    "@aws-cdk/aws-events-targets": "^1.153.1",
-    "@aws-cdk/aws-iam": "^1.153.1",
-    "@aws-cdk/aws-lambda": "^1.153.1",
-    "@aws-cdk/aws-lambda-nodejs": "^1.153.1",
-    "@aws-cdk/aws-sqs": "^1.153.1",
-    "@aws-cdk/core": "^1.153.1",
-    "constructs": "^3.3.279"
+    "aws-cdk-lib": "^2.20.0",
+    "constructs": "^10.0.111"
   },
   "dependencies": {
-    "@aws-cdk/aws-dynamodb": "^1.153.1",
-    "@aws-cdk/aws-events": "^1.153.1",
-    "@aws-cdk/aws-events-targets": "^1.153.1",
-    "@aws-cdk/aws-iam": "^1.153.1",
-    "@aws-cdk/aws-lambda": "^1.153.1",
-    "@aws-cdk/aws-lambda-nodejs": "^1.153.1",
-    "@aws-cdk/aws-sqs": "^1.153.1",
-    "@aws-cdk/core": "^1.153.1",
-    "constructs": "^3.3.279"
+    "aws-cdk-lib": "^2.20.0",
+    "constructs": "^10.0.111"
   },
   "keywords": [
-    "aws-cdk",
+    "aws-cdk@^2.20.0",
     "cdk",
     "constructs",
     "twitter"

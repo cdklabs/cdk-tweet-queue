@@ -1,17 +1,5 @@
 const { cdk } = require('projen');
 
-const cdkDeps = [
-  '@aws-cdk/aws-dynamodb',
-  '@aws-cdk/aws-events',
-  '@aws-cdk/aws-events-targets',
-  '@aws-cdk/aws-iam',
-  '@aws-cdk/aws-lambda',
-  '@aws-cdk/aws-sqs',
-  '@aws-cdk/core',
-  '@aws-cdk/aws-lambda-nodejs',
-  'constructs',
-];
-
 const project = new cdk.JsiiProject({
   name: 'cdk-tweet-queue',
   description: 'Defines an SQS queue with tweet stream from a search',
@@ -35,19 +23,26 @@ const project = new cdk.JsiiProject({
     module: 'cdk_tweet_queue',
   },
   defaultReleaseBranch: 'master',
-  deps: cdkDeps,
-  peerDeps: cdkDeps,
+  deps: [
+    'aws-cdk-lib',
+    'constructs',
+  ],
+  peerDeps: [
+    'aws-cdk-lib',
+    'constructs',
+  ],
   devDeps: [
-    'aws-cdk',
+    'aws-cdk-lib',
+    'aws-cdk@^2.20.0',
     'aws-sdk',
     'twitter',
     '@types/twitter',
-    '@aws-cdk/assert',
     'esbuild',
+    'constructs',
   ],
   keywords: [
     'cdk',
-    'aws-cdk',
+    'aws-cdk@^2.20.0',
     'twitter',
     'constructs',
   ],

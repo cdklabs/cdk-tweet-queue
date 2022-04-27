@@ -1,10 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@aws-cdk/assert",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -28,11 +24,20 @@
       "type": "build"
     },
     {
+      "name": "aws-cdk-lib",
+      "type": "build"
+    },
+    {
       "name": "aws-cdk",
+      "version": "^2.20.0",
       "type": "build"
     },
     {
       "name": "aws-sdk",
+      "type": "build"
+    },
+    {
+      "name": "constructs",
       "type": "build"
     },
     {
@@ -108,35 +113,7 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/aws-dynamodb",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-events",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-events-targets",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-iam",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda-nodejs",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-sqs",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/core",
+      "name": "aws-cdk-lib",
       "type": "peer"
     },
     {
@@ -144,35 +121,7 @@
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/aws-dynamodb",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-events",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-events-targets",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-iam",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-lambda-nodejs",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-sqs",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/core",
+      "name": "aws-cdk-lib",
       "type": "runtime"
     },
     {

@@ -19,8 +19,8 @@ Name|Description
 
 
 
-__Implements__: [IConstruct](#constructs-iconstruct), [IConstruct](#aws-cdk-core-iconstruct), [IConstruct](#constructs-iconstruct), [IDependable](#aws-cdk-core-idependable), [IResource](#aws-cdk-core-iresource), [IConstruct](#constructs-iconstruct), [IDependable](#aws-cdk-core-idependable), [IConstruct](#aws-cdk-core-iconstruct), [IQueue](#aws-cdk-aws-sqs-iqueue), [IConstruct](#constructs-iconstruct), [IDependable](#aws-cdk-core-idependable), [IConstruct](#aws-cdk-core-iconstruct), [IResource](#aws-cdk-core-iresource)
-__Extends__: [Queue](#aws-cdk-aws-sqs-queue)
+__Implements__: [IConstruct](#constructs-iconstruct), [IDependable](#constructs-idependable), [IResource](#aws-cdk-lib-iresource), [IDependable](#constructs-idependable), [IConstruct](#constructs-iconstruct), [aws_sqs.IQueue](#aws-cdk-lib-aws-sqs-iqueue), [IDependable](#constructs-idependable), [IConstruct](#constructs-iconstruct), [IResource](#aws-cdk-lib-iresource)
+__Extends__: [aws_sqs.Queue](#aws-cdk-lib-aws-sqs-queue)
 
 ### Initializer
 
@@ -31,7 +31,7 @@ __Extends__: [Queue](#aws-cdk-aws-sqs-queue)
 new TweetQueue(parent: Construct, id: string, props: TweetQueueProps)
 ```
 
-* **parent** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
+* **parent** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[TweetQueueProps](#cdk-tweet-queue-tweetqueueprops)</code>)  *No description*
   * **query** (<code>string</code>)  The twitter query string to stream. 

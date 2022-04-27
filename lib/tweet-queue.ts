@@ -1,12 +1,12 @@
 import * as path from 'path';
-import * as dynamodb from '@aws-cdk/aws-dynamodb';
-import * as events from '@aws-cdk/aws-events';
-import * as targets from '@aws-cdk/aws-events-targets';
-import * as iam from '@aws-cdk/aws-iam';
-import * as lambda from '@aws-cdk/aws-lambda-nodejs';
-import * as sqs from '@aws-cdk/aws-sqs';
-import * as cdk from '@aws-cdk/core';
-import { Duration } from '@aws-cdk/core';
+import { Duration } from 'aws-cdk-lib';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as events from 'aws-cdk-lib/aws-events';
+import * as targets from 'aws-cdk-lib/aws-events-targets';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as lambda from 'aws-cdk-lib/aws-lambda-nodejs';
+import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { Construct } from 'constructs';
 
 export interface TweetQueueProps {
   /**
@@ -47,7 +47,7 @@ export interface TweetQueueProps {
 }
 
 export class TweetQueue extends sqs.Queue {
-  constructor(parent: cdk.Construct, id: string, props: TweetQueueProps) {
+  constructor(parent: Construct, id: string, props: TweetQueueProps) {
     super(parent, id, {
       retentionPeriod: props.retentionPeriodSec === undefined ? Duration.seconds(60) : Duration.seconds(props.retentionPeriodSec),
       visibilityTimeout: props.visibilityTimeoutSec === undefined ? Duration.seconds(60) : Duration.seconds(props.visibilityTimeoutSec),

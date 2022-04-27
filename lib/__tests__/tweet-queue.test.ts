@@ -1,5 +1,5 @@
-import '@aws-cdk/assert/jest';
-import { App, Stack } from '@aws-cdk/core';
+import { App, Stack } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
 import { TweetQueue } from '..';
 
 test('snapshot', () => {
@@ -11,6 +11,5 @@ test('snapshot', () => {
     query: 'twitter query',
   });
 
-  const template = app.synth().getStack(stack.artifactId).template;
-  expect(template).toMatchSnapshot();
+  expect(Template.fromStack(stack).toJSON()).toMatchSnapshot();
 });
