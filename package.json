@@ -51,7 +51,7 @@
     "aws-cdk-lib": "^2.42.0",
     "aws-sdk": "^2.1218.0",
     "constructs": "^10.1.106",
-    "esbuild": "^0.15.7",
+    "esbuild": "^0.15.8",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.7.1",
