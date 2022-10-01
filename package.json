@@ -28,7 +28,6 @@
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
     "test": "npx projen test",
-    "test:update": "npx projen test:update",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
@@ -49,8 +48,8 @@
     "@typescript-eslint/parser": "^5",
     "aws-cdk": "^2.20.0",
     "aws-cdk-lib": "^2.44.0",
-    "aws-sdk": "^2.1226.0",
-    "constructs": "^10.1.117",
+    "aws-sdk": "^2.1227.0",
+    "constructs": "^10.1.118",
     "esbuild": "^0.15.10",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -64,18 +63,18 @@
     "jsii-pacmak": "^1.69.0",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^15",
-    "projen": "^0.62.25",
+    "projen": "^0.63.0",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.44.0",
-    "constructs": "^10.1.117"
+    "constructs": "^10.1.118"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.44.0",
-    "constructs": "^10.1.117"
+    "constructs": "^10.1.118"
   },
   "keywords": [
     "aws-cdk@^2.20.0",
