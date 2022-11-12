@@ -48,8 +48,8 @@
     "@typescript-eslint/parser": "^5",
     "aws-cdk": "^2.20.0",
     "aws-cdk-lib": "^2.50.0",
-    "aws-sdk": "^2.1252.0",
-    "constructs": "^10.1.156",
+    "aws-sdk": "^2.1253.0",
+    "constructs": "^10.1.157",
     "esbuild": "^0.15.13",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -70,11 +70,11 @@
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.50.0",
-    "constructs": "^10.1.156"
+    "constructs": "^10.1.157"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.50.0",
-    "constructs": "^10.1.156"
+    "constructs": "^10.1.157"
   },
   "keywords": [
     "aws-cdk@^2.20.0",
