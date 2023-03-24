@@ -48,8 +48,8 @@
     "@typescript-eslint/parser": "^5",
     "aws-cdk": "^2.20.0",
     "aws-cdk-lib": "^2.70.0",
-    "aws-sdk": "^2.1341.0",
-    "constructs": "^10.1.288",
+    "aws-sdk": "^2.1342.0",
+    "constructs": "^10.1.289",
     "esbuild": "^0.17.12",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -58,22 +58,22 @@
     "jest": "^27",
     "jest-junit": "^15",
     "jsii": "1.x",
-    "jsii-diff": "^1.78.1",
+    "jsii-diff": "^1.79.0",
     "jsii-docgen": "^1.8.110",
-    "jsii-pacmak": "^1.78.1",
+    "jsii-pacmak": "^1.79.0",
     "npm-check-updates": "^16",
-    "projen": "^0.69.4",
+    "projen": "^0.69.5",
     "standard-version": "^9",
     "twitter": "^1.7.1",
     "typescript": "^3.9.10"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.70.0",
-    "constructs": "^10.1.288"
+    "constructs": "^10.1.289"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.70.0",
-    "constructs": "^10.1.288"
+    "constructs": "^10.1.289"
   },
   "keywords": [
     "aws-cdk@^2.20.0",
