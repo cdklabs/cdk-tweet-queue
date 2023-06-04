@@ -49,7 +49,7 @@
     "aws-cdk": "^2.20.0",
     "aws-cdk-lib": "^2.82.0",
     "aws-sdk": "^2.1390.0",
-    "constructs": "^10.2.41",
+    "constructs": "^10.2.42",
     "esbuild": "^0.17.19",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -69,11 +69,11 @@
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.82.0",
-    "constructs": "^10.2.41"
+    "constructs": "^10.2.42"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.82.0",
-    "constructs": "^10.2.41"
+    "constructs": "^10.2.42"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
