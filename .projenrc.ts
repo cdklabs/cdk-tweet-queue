@@ -1,7 +1,8 @@
-const { cdk } = require('projen');
+import { cdk } from 'projen';
 
 const project = new cdk.JsiiProject({
   name: 'cdk-tweet-queue',
+  projenrcTs: true,
   description: 'Defines an SQS queue with tweet stream from a search',
   authorName: 'Elad Ben-Israel',
   authorEmail: 'elad.benisrael@gmail.com',
