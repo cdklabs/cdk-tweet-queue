@@ -12,7 +12,7 @@ Inspired by
 
 ## Architecture
 
-![](https://github.com/eladb/cdk-tweet-queue/raw/master/images/architecture.png)
+![](https://github.com/eladb/cdk-tweet-queue/raw/main/images/architecture.png)
 
 1. A CloudWatch Event Rule triggers the poller AWS Lambda function periodically
 2. The poller reads the last checkpoint from a DynamoDB table (if exists)
@@ -35,7 +35,7 @@ and `access_token_secret` (exact names).
 
 1. Create a new AWS Secrets Manager entry for your API keys
 2. Fill in the key values as shown below:
-    ![](https://github.com/eladb/cdk-tweet-queue/raw/master/images/secretsmanager.png)
+    ![](https://github.com/eladb/cdk-tweet-queue/raw/main/images/secretsmanager.png)
 3. Store the key
 4. Obtain the ARN of the secret (you will need it soon).
 
