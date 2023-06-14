@@ -22,7 +22,7 @@ const project = new cdk.JsiiProject({
     distName: 'cdk-tweet-queue',
     module: 'cdk_tweet_queue',
   },
-  defaultReleaseBranch: 'master',
+  defaultReleaseBranch: 'main',
   deps: [
     'aws-cdk-lib',
     'constructs',
