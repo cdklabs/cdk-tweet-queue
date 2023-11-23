@@ -320,16 +320,13 @@
       },
       "steps": [
         {
-          "exec": "yarn upgrade npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@types/twitter,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,aws-cdk-lib,aws-cdk,aws-sdk,constructs,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,npm-check-updates,projen,standard-version,ts-node,twitter,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@types/twitter,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,aws-cdk-lib,aws-cdk,aws-sdk,constructs,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,projen,standard-version,ts-node,twitter,typescript"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @types/twitter @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib aws-cdk aws-sdk constructs esbuild eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak npm-check-updates projen standard-version ts-node twitter typescript"
+          "exec": "yarn upgrade @types/jest @types/node @types/twitter @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib aws-cdk aws-sdk constructs esbuild eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak projen standard-version ts-node twitter typescript"
         },
         {
           "exec": "npx projen"
