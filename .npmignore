@@ -21,3 +21,4 @@ tsconfig.tsbuildinfo
 /lib/__tests__/
 /.eslintrc.json
 !.jsii
+/.gitattributes
