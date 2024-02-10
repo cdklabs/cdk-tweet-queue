@@ -321,13 +321,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@types/twitter,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,aws-cdk-lib,aws-cdk,aws-sdk,constructs,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,eslint,jest-junit,jest,jsii-diff,jsii-docgen,jsii-pacmak,projen,standard-version,ts-node,twitter,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/twitter,aws-cdk-lib,aws-sdk,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jsii-diff,jsii-docgen,jsii-pacmak,jsii-rosetta,jsii,projen,ts-node,twitter,typescript,constructs"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @types/twitter @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib aws-cdk aws-sdk constructs esbuild eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak projen standard-version ts-node twitter typescript"
+          "exec": "yarn upgrade @types/jest @types/node @types/twitter @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk-lib aws-cdk aws-sdk constructs esbuild eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen standard-version ts-node twitter typescript"
         },
         {
           "exec": "npx projen"
