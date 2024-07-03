@@ -3,7 +3,7 @@
   "description": "Defines an SQS queue with tweet stream from a search",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eladb/cdk-tweet-queue"
+    "url": "https://github.com/cdklabs/cdk-tweet-queue"
   },
   "scripts": {
     "build": "npx projen build",

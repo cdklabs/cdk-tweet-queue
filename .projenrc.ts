@@ -6,7 +6,7 @@ const project = new cdk.JsiiProject({
   description: 'Defines an SQS queue with tweet stream from a search',
   author: 'Elad Ben-Israel',
   authorAddress: 'elad.benisrael@gmail.com',
-  repositoryUrl: 'https://github.com/eladb/cdk-tweet-queue',
+  repositoryUrl: 'https://github.com/cdklabs/cdk-tweet-queue',
   releaseToNpm: true,
   publishToNuget: {
     dotNetNamespace: 'Cdklabs.CdkTweetQueue',
