@@ -113,7 +113,7 @@ the queue is imported (`Queue.import`), then this is a no-op.
 ##### `grant` <a name="grant" id="cdk-tweet-queue.TweetQueue.grant"></a>
 
 ```typescript
-public grant(grantee: IGrantable, actions: string): Grant
+public grant(grantee: IGrantable, actions: ...string[]): Grant
 ```
 
 Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
@@ -128,7 +128,7 @@ Principal to grant right to.
 
 ###### `actions`<sup>Required</sup> <a name="actions" id="cdk-tweet-queue.TweetQueue.grant.parameter.actions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The actions to grant.
 
