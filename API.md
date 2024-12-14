@@ -683,7 +683,7 @@ const tweetQueueProps: TweetQueueProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-tweet-queue.TweetQueueProps.property.query">query</a></code> | <code>string</code> | The twitter query string to stream. |
-| <code><a href="#cdk-tweet-queue.TweetQueueProps.property.secretArn">secretArn</a></code> | <code>string</code> | The SecretsManager secret that contains Twitter authentication credentials from https://apps.twitter.com/ with the following attributes (exact names):   - consumer_key   - consumer_secret   - access_token_key   - access_token_secret. |
+| <code><a href="#cdk-tweet-queue.TweetQueueProps.property.secretArn">secretArn</a></code> | <code>string</code> | The SecretsManager secret that contains Twitter authentication credentials from https://apps.twitter.com/ with the following attributes (exact names):  - consumer_key  - consumer_secret  - access_token_key  - access_token_secret. |
 | <code><a href="#cdk-tweet-queue.TweetQueueProps.property.intervalMin">intervalMin</a></code> | <code>number</code> | Polling interval in minutes. |
 | <code><a href="#cdk-tweet-queue.TweetQueueProps.property.retentionPeriodSec">retentionPeriodSec</a></code> | <code>number</code> | Number of seconds for messages to wait in the queue for processing. |
 | <code><a href="#cdk-tweet-queue.TweetQueueProps.property.visibilityTimeoutSec">visibilityTimeoutSec</a></code> | <code>number</code> | Number of seconds for messages to be invisible while they are processed. |
@@ -710,7 +710,7 @@ public readonly secretArn: string;
 
 - *Type:* string
 
-The SecretsManager secret that contains Twitter authentication credentials from https://apps.twitter.com/ with the following attributes (exact names):   - consumer_key   - consumer_secret   - access_token_key   - access_token_secret.
+The SecretsManager secret that contains Twitter authentication credentials from https://apps.twitter.com/ with the following attributes (exact names):  - consumer_key  - consumer_secret  - access_token_key  - access_token_secret.
 
 ---
 
