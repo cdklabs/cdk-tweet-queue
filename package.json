@@ -43,7 +43,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^27",
-    "@types/node": "^16 <= 16.18.78",
+    "@types/node": "^20",
     "@types/twitter": "^1.7.4",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
