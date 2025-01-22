@@ -37,9 +37,9 @@
   integrity sha512-7bY3J8GCVxLupn/kNmpPc5VJz8grx+4RKfnnJiO1LG+uxkZfANZG3RMHhE+qQxxwkyQ9/MfPtTpf748UhR425A==
 
 "@aws-cdk/cloud-assembly-schema@^39.0.1":
-  version "39.2.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-39.2.0.tgz#2abf4afb91c873a0206b5b6467fe53e505f7a9b7"
-  integrity sha512-ymGG+ab4xN40iPx9O0zuuvu6qZi4RY+hr3YScSg5Ye0dkcchQ49RBINHrqqy7fZvcMbV7bkxf/Cxj9yxSF3BnA==
+  version "39.2.1"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-39.2.1.tgz#08a08253a07c85ee7fab159f911be83307503387"
+  integrity sha512-cz18QG02p++ivQ5wdjLI8TyMk1p6kwQc1ExeL2A9RoUg1gCnwEBrkJMhiWgTroWBblT0GF0MqSvzkyeEdHqn2A==
   dependencies:
     jsonschema "~1.4.1"
     semver "^7.6.3"
@@ -4119,9 +4119,9 @@ jsii-diff@^1.106.0:
     yargs "^16.2.0"
 
 jsii-docgen@^10.5.0:
-  version "10.6.3"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.6.3.tgz#d4cdba3301739178c92e6335b93e6b2078adb7c1"
-  integrity sha512-LJafkX3sHRe85ByXvxm0WvBRlhI62XkYJzEONbxQ1YkcWs1rj2NfxUF0NZgpr7+DSzxHyXSQ8cYSRsZYMQ2hjA==
+  version "10.6.4"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-10.6.4.tgz#f19868fc7fa7e655d7019af49ace01fc0c8ce98c"
+  integrity sha512-nnUM31OnENdNj400mKdXVCsOqmFQvpne0pxyr+UydCrQcahFheU6uAyRBN85bakoLfXuNAcF0RJBhEyHmLdFOA==
   dependencies:
     "@jsii/spec" "^1.106.0"
     case "^1.6.3"
