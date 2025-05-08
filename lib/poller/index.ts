@@ -2,7 +2,7 @@
 import { SecretsManager, SQS } from 'aws-sdk';
 // eslint-disable-next-line import/no-extraneous-dependencies
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-import Twitter = require('twitter')
+import Twitter = require('twitter');
 import { CheckpointTable } from './checkpoint';
 import { getEnv } from './util';
 
