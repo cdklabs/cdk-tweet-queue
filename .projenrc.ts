@@ -14,7 +14,7 @@ const project = new cdk.JsiiProject({
   },
   publishToMaven: {
     mavenGroupId: 'io.github.cdklabs',
-    mavenEndpoint: 'https://s01.oss.sonatype.org',
+    mavenServerId: 'central-ossrh',
     javaPackage: 'io.github.cdklabs.tweetqueue',
     mavenArtifactId: 'cdk-tweet-queue',
   },
