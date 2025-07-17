@@ -1430,10 +1430,10 @@ available-typed-arrays@^1.0.7:
   dependencies:
     possible-typed-array-names "^1.0.0"
 
-aws-cdk-lib@^2.205.0:
-  version "2.205.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.205.0.tgz#a2bdf2e9701b052cb7d4f472611a7ed2f44dd9a0"
-  integrity sha512-GZHy/F8jql+1aFlgIhGQuLl9zHvceHL0VRuBgaYngwWrflHc+ZN3eCEtfzCblA2bXmi4NbLljpSUBIGBVx2EEQ==
+aws-cdk-lib@^2.206.0:
+  version "2.206.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.206.0.tgz#39da3b9147eeb9bb07df12cdca85ba9ef09d2f37"
+  integrity sha512-WQGSSzSX+CvIG3j4GICxCAARGaB2dbB2ZiAn8dqqWdUkF6G9pedlSd3bjB0NHOqrxJMu3jYQCYf3gLYTaJuR8A==
   dependencies:
     "@aws-cdk/asset-awscli-v1" "2.2.242"
     "@aws-cdk/asset-node-proxy-agent-v6" "^2.1.0"
@@ -1451,9 +1451,9 @@ aws-cdk-lib@^2.205.0:
     yaml "1.10.2"
 
 aws-cdk@^2.20.0:
-  version "2.1020.2"
-  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.1020.2.tgz#7e0a4113666a6d162cf40b6b1ebf9e310c22dd44"
-  integrity sha512-yWdt3dJh4aPm1VNyEgfG3lozGrvddw0i7avt+Cl9KOYixmisQtAg39/aZqzVVqjzVZVEanXmz+tlhzzh75Z69A==
+  version "2.1021.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.1021.0.tgz#2443f4580731216bd4c5439cf7421dab5a2444c3"
+  integrity sha512-kE557b4N9UFWax+7km3R6D56o4tGhpzOks/lRDugaoC8su3mocLCXJhb954b/IRl0ipnbZnY/Sftq+RQ/sxivg==
   optionalDependencies:
     fsevents "2.3.2"
 
