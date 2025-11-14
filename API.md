@@ -524,7 +524,7 @@ Import an existing queue.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-tweet-queue.TweetQueue.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.fifo">fifo</a></code> | <code>boolean</code> | Whether this queue is an Amazon SQS FIFO queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.queueArn">queueArn</a></code> | <code>string</code> | The ARN of this queue. |
@@ -554,7 +554,7 @@ The tree node.
 public readonly env: ResourceEnvironment;
 ```
 
-- *Type:* aws-cdk-lib.ResourceEnvironment
+- *Type:* aws-cdk-lib.interfaces.ResourceEnvironment
 
 The environment this resource belongs to.
 
