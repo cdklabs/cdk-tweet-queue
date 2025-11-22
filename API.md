@@ -47,6 +47,7 @@ new TweetQueue(parent: Construct, id: string, props: TweetQueueProps)
 | <code><a href="#cdk-tweet-queue.TweetQueue.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.grant">grant</a></code> | Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.grantConsumeMessages">grantConsumeMessages</a></code> | Grant permissions to consume messages from a queue. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.grantOnKey">grantOnKey</a></code> | Gives permissions to a grantable entity to perform actions on the encryption key. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.grantPurge">grantPurge</a></code> | Grant an IAM principal permissions to purge all messages from the queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.grantSendMessages">grantSendMessages</a></code> | Grant access to send messages to a queue to the given identity. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.metric">metric</a></code> | Return the given named metric for this Queue. |
@@ -161,6 +162,26 @@ This will grant the following KMS permissions:
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
 
 Principal to grant consume rights to.
+
+---
+
+##### `grantOnKey` <a name="grantOnKey" id="cdk-tweet-queue.TweetQueue.grantOnKey"></a>
+
+```typescript
+public grantOnKey(grantee: IGrantable, actions: ...string[]): GrantOnKeyResult
+```
+
+Gives permissions to a grantable entity to perform actions on the encryption key.
+
+###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grantOnKey.parameter.grantee"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `actions`<sup>Required</sup> <a name="actions" id="cdk-tweet-queue.TweetQueue.grantOnKey.parameter.actions"></a>
+
+- *Type:* ...string[]
 
 ---
 
@@ -527,8 +548,10 @@ Import an existing queue.
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.env">env</a></code> | <code>aws-cdk-lib.interfaces.ResourceEnvironment</code> | The environment this resource belongs to. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.fifo">fifo</a></code> | <code>boolean</code> | Whether this queue is an Amazon SQS FIFO queue. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.property.grants">grants</a></code> | <code>aws-cdk-lib.aws_sqs.QueueGrants</code> | Collection of grant methods for a Queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.queueArn">queueArn</a></code> | <code>string</code> | The ARN of this queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.queueName">queueName</a></code> | <code>string</code> | The name of this queue. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.property.queueRef">queueRef</a></code> | <code>aws-cdk-lib.interfaces.aws_sqs.QueueReference</code> | A reference to a Queue resource. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.queueUrl">queueUrl</a></code> | <code>string</code> | The URL of this queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.encryptionMasterKey">encryptionMasterKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | If this queue is encrypted, this is the KMS key. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.property.encryptionType">encryptionType</a></code> | <code>aws-cdk-lib.aws_sqs.QueueEncryption</code> | Whether the contents of the queue are encrypted, and by what type of key. |
@@ -594,6 +617,18 @@ If false, this is a standard queue.
 
 ---
 
+##### `grants`<sup>Required</sup> <a name="grants" id="cdk-tweet-queue.TweetQueue.property.grants"></a>
+
+```typescript
+public readonly grants: QueueGrants;
+```
+
+- *Type:* aws-cdk-lib.aws_sqs.QueueGrants
+
+Collection of grant methods for a Queue.
+
+---
+
 ##### `queueArn`<sup>Required</sup> <a name="queueArn" id="cdk-tweet-queue.TweetQueue.property.queueArn"></a>
 
 ```typescript
@@ -615,6 +650,18 @@ public readonly queueName: string;
 - *Type:* string
 
 The name of this queue.
+
+---
+
+##### `queueRef`<sup>Required</sup> <a name="queueRef" id="cdk-tweet-queue.TweetQueue.property.queueRef"></a>
+
+```typescript
+public readonly queueRef: QueueReference;
+```
+
+- *Type:* aws-cdk-lib.interfaces.aws_sqs.QueueReference
+
+A reference to a Queue resource.
 
 ---
 

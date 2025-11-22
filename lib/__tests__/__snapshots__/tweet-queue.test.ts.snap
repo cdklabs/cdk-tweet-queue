@@ -149,17 +149,12 @@ Object {
                 "dynamodb:DescribeTable",
               ],
               "Effect": "Allow",
-              "Resource": Array [
-                Object {
-                  "Fn::GetAtt": Array [
-                    "MyQueueCheckpointTableD0A503A4",
-                    "Arn",
-                  ],
-                },
-                Object {
-                  "Ref": "AWS::NoValue",
-                },
-              ],
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "MyQueueCheckpointTableD0A503A4",
+                  "Arn",
+                ],
+              },
             },
           ],
           "Version": "2012-10-17",
