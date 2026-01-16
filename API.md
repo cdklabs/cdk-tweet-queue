@@ -119,6 +119,8 @@ public grant(grantee: IGrantable, actions: ...string[]): Grant
 
 Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grant.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -156,6 +158,8 @@ If encryption is used, permission to use the key to decrypt the contents of the 
 This will grant the following KMS permissions:
 
   - kms:Decrypt
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grantConsumeMessages.parameter.grantee"></a>
 
@@ -199,6 +203,8 @@ This will grant the following permissions:
  - sqs:GetQueueAttributes
  - sqs:GetQueueUrl
 
+[disable-awslint:no-grants]
+
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grantPurge.parameter.grantee"></a>
 
 - *Type:* aws-cdk-lib.aws_iam.IGrantable
@@ -229,6 +235,8 @@ This will grant the following KMS permissions:
  - kms:Encrypt
  - kms:ReEncrypt*
  - kms:GenerateDataKey*
+
+[disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grantSendMessages.parameter.grantee"></a>
 
