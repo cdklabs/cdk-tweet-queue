@@ -1,12 +1,25 @@
-import { cdk } from 'projen';
+import { CdklabsConstructLibrary, JsiiLanguage } from 'cdklabs-projen-project-types';
+import { NpmAccess } from 'projen/lib/javascript';
 
-const project = new cdk.JsiiProject({
+const project = new CdklabsConstructLibrary({
   name: 'cdk-tweet-queue',
   projenrcTs: true,
   description: 'Defines an SQS queue with tweet stream from a search',
-  author: 'Elad Ben-Israel',
-  authorAddress: 'elad.benisrael@gmail.com',
-  repositoryUrl: 'https://github.com/cdklabs/cdk-tweet-queue',
+  repository: 'https://github.com/cdklabs/cdk-tweet-queue',
+  author: 'Amazon Web Services',
+  authorAddress: 'aws-cdk-dev@amazon.com',
+  cdkVersion: '2.236.0',
+  minNodeVersion: '20.0.0',
+  setNodeEngineVersion: false,
+  defaultReleaseBranch: 'main',
+  npmAccess: NpmAccess.PUBLIC,
+  private: false,
+  enablePRAutoMerge: true,
+  jsiiTargetLanguages: [
+    JsiiLanguage.DOTNET,
+    JsiiLanguage.JAVA,
+    JsiiLanguage.PYTHON,
+  ],
   releaseToNpm: true,
   publishToNuget: {
     dotNetNamespace: 'Cdklabs.CdkTweetQueue',
@@ -22,7 +35,6 @@ const project = new cdk.JsiiProject({
     distName: 'cdk-tweet-queue',
     module: 'cdk_tweet_queue',
   },
-  defaultReleaseBranch: 'main',
   deps: [
     'aws-cdk-lib',
     'constructs',
@@ -48,12 +60,18 @@ const project = new cdk.JsiiProject({
   ],
   srcdir: 'lib',
   testdir: 'lib/__tests__',
-  autoApproveOptions: {
-    allowedUsernames: ['cdklabs-automation'],
-    secret: 'GITHUB_TOKEN',
-  },
-  autoApproveUpgrades: true,
 });
+
+// Mark package as stable without go publishing
+project.package.addField('stability', 'stable');
+
+// Remove integ task from test workflow (added by IntegRunner)
+project.testTask.reset();
+project.testTask.exec('jest --passWithNoTests --updateSnapshot');
+const eslintTask = project.tasks.tryFind('eslint');
+if (eslintTask) {
+  project.testTask.spawn(eslintTask);
+}
 
 project.gitignore.exclude('cdk.out');
 

@@ -15,8 +15,10 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
+    "integ": "npx cdk -a 'node lib/__tests__/integ-test.js'",
     "integ:deploy": "npx projen integ:deploy",
     "integ:destroy": "npx projen integ:destroy",
+    "integ:update": "npx projen integ:update",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:dotnet": "npx projen package:dotnet",
@@ -27,20 +29,24 @@
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
+    "rosetta:extract": "npx projen rosetta:extract",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
+    "upgrade-cdklabs-projen-project-types": "npx projen upgrade-cdklabs-projen-project-types",
+    "upgrade-dev-deps": "npx projen upgrade-dev-deps",
     "watch": "npx projen watch",
-    "projen": "npx projen",
-    "integ": "npx cdk -a 'node lib/__tests__/integ-test.js'"
+    "projen": "npx projen"
   },
   "author": {
-    "name": "Elad Ben-Israel",
-    "email": "elad.benisrael@gmail.com",
-    "organization": false
+    "name": "Amazon Web Services",
+    "email": "aws-cdk-dev@amazon.com",
+    "organization": true
   },
   "devDependencies": {
+    "@aws-cdk/integ-runner": "latest",
+    "@aws-cdk/integ-tests-alpha": "latest",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^27",
     "@types/node": "^20",
@@ -48,17 +54,17 @@
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk": "^2.20.0",
-    "aws-cdk-lib": "^2.236.0",
+    "aws-cdk-lib": "2.236.0",
     "aws-sdk": "^2.1693.0",
+    "cdklabs-projen-project-types": "^0.3.14",
     "commit-and-tag-version": "^12",
-    "constructs": "^10.4.5",
     "esbuild": "^0.27.2",
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.32.0",
     "jest": "^27",
     "jest-junit": "^16",
-    "jsii": "~5.8.0",
+    "jsii": "~5.9",
     "jsii-diff": "^1.125.0",
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.125.0",
@@ -70,7 +76,7 @@
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.236.0",
-    "constructs": "^10.4.5"
+    "constructs": "^10.0.5"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.236.0",
