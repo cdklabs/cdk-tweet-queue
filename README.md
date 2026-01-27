@@ -55,7 +55,7 @@ import { TweetQueue } from 'cdk-tweet-queue';
 
 const queue = new TweetQueue(this, 'TweetStream', {
   // this is the ARN of the secret you stored
-  secretArn: 'arn:aws:secretsmanager:us-east-1:1234567891234:secret:xxxxxxxxx'
+  secretArn: 'arn:aws:secretsmanager:us-east-1:1234567891234:secret:xxxxxxxxx',
 
   // twitter search query
   // see https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators
