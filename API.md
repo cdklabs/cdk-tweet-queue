@@ -43,6 +43,7 @@ new TweetQueue(parent: Construct, id: string, props: TweetQueueProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-tweet-queue.TweetQueue.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.grant">grant</a></code> | Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource. |
@@ -70,6 +71,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk-tweet-queue.TweetQueue.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-tweet-queue.TweetQueue.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-tweet-queue.TweetQueue.applyRemovalPolicy"></a>
 
@@ -159,6 +181,9 @@ This will grant the following KMS permissions:
 
   - kms:Decrypt
 
+
+The use of this method is discouraged. Please use `grants.consumeMessages()` instead.
+
 [disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grantConsumeMessages.parameter.grantee"></a>
@@ -203,6 +228,9 @@ This will grant the following permissions:
  - sqs:GetQueueAttributes
  - sqs:GetQueueUrl
 
+
+The use of this method is discouraged. Please use `grants.purge()` instead.
+
 [disable-awslint:no-grants]
 
 ###### `grantee`<sup>Required</sup> <a name="grantee" id="cdk-tweet-queue.TweetQueue.grantPurge.parameter.grantee"></a>
@@ -235,6 +263,9 @@ This will grant the following KMS permissions:
  - kms:Encrypt
  - kms:ReEncrypt*
  - kms:GenerateDataKey*
+
+
+The use of this method is discouraged. Please use `grants.sendMessages()` instead.
 
 [disable-awslint:no-grants]
 
