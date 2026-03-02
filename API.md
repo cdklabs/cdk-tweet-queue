@@ -89,8 +89,6 @@ constructs.
 
 - *Type:* ...constructs.IMixin[]
 
-The mixins to apply.
-
 ---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="cdk-tweet-queue.TweetQueue.applyRemovalPolicy"></a>
