@@ -44,6 +44,7 @@ new TweetQueue(parent: Construct, id: string, props: TweetQueueProps)
 | --- | --- |
 | <code><a href="#cdk-tweet-queue.TweetQueue.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.with">with</a></code> | Applies one or more mixins to this construct. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.applyCrossStackReferenceStrength">applyCrossStackReferenceStrength</a></code> | Override the cross-stack reference strength for this resource. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the IAM resource policy associated with this queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.grant">grant</a></code> | Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource. |
@@ -88,6 +89,28 @@ constructs.
 ###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk-tweet-queue.TweetQueue.with.parameter.mixins"></a>
 
 - *Type:* ...constructs.IMixin[]
+
+---
+
+##### `applyCrossStackReferenceStrength` <a name="applyCrossStackReferenceStrength" id="cdk-tweet-queue.TweetQueue.applyCrossStackReferenceStrength"></a>
+
+```typescript
+public applyCrossStackReferenceStrength(strength: ReferenceStrength): void
+```
+
+Override the cross-stack reference strength for this resource.
+
+When set, any cross-stack reference to this resource will use the specified
+mechanism instead of the global default determined by the
+`@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+selectively weakening specific references to avoid the "deadly embrace" problem
+without changing the app-wide default.
+
+###### `strength`<sup>Required</sup> <a name="strength" id="cdk-tweet-queue.TweetQueue.applyCrossStackReferenceStrength.parameter.strength"></a>
+
+- *Type:* aws-cdk-lib.ReferenceStrength
+
+The reference strength to use for this resource.
 
 ---
 
