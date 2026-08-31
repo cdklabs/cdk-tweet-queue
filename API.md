@@ -56,6 +56,7 @@ new TweetQueue(parent: Construct, id: string, props: TweetQueueProps)
 | <code><a href="#cdk-tweet-queue.TweetQueue.metricApproximateAgeOfOldestMessage">metricApproximateAgeOfOldestMessage</a></code> | The approximate age of the oldest non-deleted message in the queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesDelayed">metricApproximateNumberOfMessagesDelayed</a></code> | The number of messages in the queue that are delayed and not available for reading immediately. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesNotVisible">metricApproximateNumberOfMessagesNotVisible</a></code> | The number of messages that are in flight. |
+| <code><a href="#cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesOutstanding">metricApproximateNumberOfMessagesOutstanding</a></code> | The number of messages waiting to be picked up plus the number in flight. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesVisible">metricApproximateNumberOfMessagesVisible</a></code> | The number of messages available for retrieval from the queue. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.metricNumberOfEmptyReceives">metricNumberOfEmptyReceives</a></code> | The number of ReceiveMessage API calls that did not return a message. |
 | <code><a href="#cdk-tweet-queue.TweetQueue.metricNumberOfMessagesDeleted">metricNumberOfMessagesDeleted</a></code> | The number of messages deleted from the queue. |
@@ -361,6 +362,30 @@ The number of messages that are in flight.
 Maximum over 5 minutes
 
 ###### `props`<sup>Optional</sup> <a name="props" id="cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesNotVisible.parameter.props"></a>
+
+- *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
+
+---
+
+##### `metricApproximateNumberOfMessagesOutstanding` <a name="metricApproximateNumberOfMessagesOutstanding" id="cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesOutstanding"></a>
+
+```typescript
+public metricApproximateNumberOfMessagesOutstanding(props?: MetricOptions): MathExpression
+```
+
+The number of messages waiting to be picked up plus the number in flight.
+
+`ApproximateNumberOfMessagesVisible + ApproximateNumberOfMessagesNotVisible`, as a metric math
+expression. Prefer this over `metricApproximateNumberOfMessagesVisible` when scaling consumers
+in: receiving a message lowers `Visible`, so a policy watching only `Visible` cannot tell a
+consumer that just picked up work from one that finished it.
+
+`statistic`, `unit` and dimensions apply to both underlying metrics, `label`, `color` and
+`period` to the expression.
+
+Maximum over 5 minutes
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-tweet-queue.TweetQueue.metricApproximateNumberOfMessagesOutstanding.parameter.props"></a>
 
 - *Type:* aws-cdk-lib.aws_cloudwatch.MetricOptions
 
