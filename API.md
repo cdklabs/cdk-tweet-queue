@@ -4,6 +4,8 @@
 
 ### TweetQueue <a name="TweetQueue" id="cdk-tweet-queue.TweetQueue"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable, aws-cdk-lib.IResource, aws-cdk-lib.interfaces.IEnvironmentAware, aws-cdk-lib.aws_sqs.IQueue, aws-cdk-lib.interfaces.aws_sqs.IQueueRef, aws-cdk-lib.aws_iam.IEncryptedResource
+
 #### Initializers <a name="Initializers" id="cdk-tweet-queue.TweetQueue.Initializer"></a>
 
 ```typescript
